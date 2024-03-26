@@ -1,0 +1,9 @@
+2017 OWASP TOP 10
+Using Components with Known Vulnerabilities
+When it comes to vulnerabilities, the unknown is scary, but sometimes it’s the known you have to worry about. If an attacker wants to attack you with a new vulnerability, the attacker first has to discover this new vulnerability and then figure out how to exploit it. With known vulnerabilities, it could be as simple as the attacker pressing enter.
+
+Using Components with Known Vulnerabilities means using software or package versions that are known to be vulnerable. Vulnerabilities are common in software, but they usually get patched as new updates are released. However, older versions of the software remain vulnerable!
+
+The Common Vulnerabilities and Exposures system has detailed records of publicly-known vulnerabilities that have been exploited. This is usually used to help people protect themselves and patch these vulnerabilities, but this knowledge can also be used by malicious actors. There are even tools to do this research automatically, and these tools can determine what software a server is running and suggest exploit kits that could attack it.
+
+Usually, this can be prevented by keeping software such as operating systems, hosts, database software, etc up to date. If a piece of software is abandoned, it’s time to find a new, actively-maintained replacement.

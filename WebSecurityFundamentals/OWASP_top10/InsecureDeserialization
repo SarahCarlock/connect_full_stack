@@ -1,0 +1,9 @@
+2017 OWASP TOP 10
+Insecure Deserialization
+If there’s only one thing you take away from this lesson, let it be “Don’t trust user input”. Especially if that user input will interact directly with your server.
+
+Serialization is the process of turning an object within a program into formatted data. Deserialization is the process of turning formatted data into an object within code. Insecure Deserialization is when this process can be exploited to cause unintended behavior.
+
+If an attacker is able to modify the data that is going to be deserialized, they can change the resulting object, modifying data or adding malicious behaviors. In the worst case, this can allow for arbitrary code execution.
+
+There are a few different ways to prevent insecure deserialization, but the easiest and most reliable way is to just not deserialize external data.

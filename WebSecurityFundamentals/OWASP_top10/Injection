@@ -1,0 +1,34 @@
+2017 OWASP TOP 10
+Injection
+A hacker stares at a textbox on their screen, finger hovering over the enter key. In the input box is a malicious query. They hit the enter key, and the website freezes for a moment before displaying the credentials of every administrator account. The website’s owner is about to have a very bad day.
+
+Injection is when an attacker injects malicious code into an interpreter in order to gain access to information or damage a system. This is often accomplished by inserting malicious characters into an input field on the website, and this malicious input is then sent to the interpreter. Sometimes, this will cause the interpreter to crash, but it can, in the worst case, cause the interpreter to start running code supplied by the attacker.
+
+Interpreters for query languages such as SQL are a common target, but not the only one. In some cases, Injection attacks can even target the operating system the webserver is running, passing data that is executed as a terminal command.
+
+Here is an example of normal Java code that searches for a product by name:
+
+query = "SELECT product_name, product_cost FROM
+product_table WHERE product_name = " + USER_INPUT + "'";
+
+Here is a malicious query that searches for the product “soap” while attaching a UNION command to steal usernames and passwords:
+
+soap' UNION SELECT username,password,NULL FROM user_table;-- -
+
+Here is what the code interpreter sees when the malicious query is added:
+
+SELECT product_name, product_cost FROM
+product_table WHERE product_name = 'soap' UNION SELECT username,password,NULL FROM user_table;-- -';
+
+Injection attacks are usually mitigated by sanitizing and validating all user input as well as writing code so that the interpreter can’t get confused about what is and isn’t data.
+
+Instructions
+In the workspace, there is a webpage with a login box. Unfortunately, this webpage is vulnerable to SQL injection. Use the dropdown box to try different values in the password box to see what the SQL interpreter returns!
+
+Inputting the password “password” results in a normal denied login.
+
+Appending two dashes to the password effectively comments out all of the code that comes next in the interpreter, causing a syntax error.
+
+Using the OR keyword and a statement that always evaluates to true, such as 1=1, breaks the password comparison. In this case, that injection returned the first account in the database, which happened to be the admin account.
+
+By exiting the statement early and appending a DROP TABLE command, we can delete the Accounts table. This will prevent anyone from being able to log in. (You can reset the workspace using the refresh button in the embedded browser.)

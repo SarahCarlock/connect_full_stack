@@ -1,0 +1,40 @@
+Question 1
+What is a file?
+    A unit of storage used to describe a self-contained piece of data. A file is the unit of storage that creates the basis of the filesystem.
+
+Question 2
+What is a file system?
+    The data structure used by the operating system to store and retrieve data. The filesystem is the component within the operating system that deals with data management.
+
+Question 3
+How does a working directory differ from a normal directory?
+    A working directory is the directory associated withthe execution of a process.
+
+Question 4
+What is the smallest unit of storage for a physical drive?
+    A sector is the smallest unit of storage for a physical drive.
+
+Question 5
+The filesystem has multiple layers of abstraction: applications, the logical file system, the file-organization module, the basic file system, ________, and devices.
+    The IO control is the layer that contains the software drivers that communicates with the storage device’s physical controller.
+
+Question 6
+Within filesystems, what is a directory?
+    A directory is a data structure that contains references to files and other directories. A directory is the organizational component of the filesystem, containing files and other directories.
+
+Question 7
+What are the differences between file attributes and file permissions?
+    File attributes are a collection of metadata that determine how files behave, such as if they are hidden or compressed, while file permissions determine which users and groups can read, write, and execute the file. File attributes are metadata driving how the filesystem views the file, while file permissions determine how users may interact with the file.
+
+Question 8
+What is a block within the filesystem?
+    The block is the smallest unit of storage for the software filesystem. The block is the foundation for the software abstraction of space within the filesystem.
+
+Question 9
+What data does a file control block contain?
+    The file’s permissions, owners, size, and the times it was created, modified, and accessed. The file control block contains the accounting information of the file, such as its owners and times it was accessed.
+
+Question 10
+What are the three main operations that can be performed on a file?
+    They can be read, written, or executed. Reading, writing, and execution encompass all the operations possible on a file. Opening a file requires the file to be read and deleting a file requires it to be written.
+

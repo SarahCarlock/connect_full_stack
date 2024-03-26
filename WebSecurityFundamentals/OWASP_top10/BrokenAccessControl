@@ -1,0 +1,30 @@
+2017 OWASP TOP 10
+Broken Access Control
+We know not to trust user input, but the website doesn’t necessarily know not to trust user input. The webpages themselves were made securely, but none of the engineers ever bothered to ask “Isn’t the URL user input too?”. The attacker is now changing the URL in order to grab the personal information of every profile on the website; just because there weren’t links to other user’s profiles on the homepage didn’t mean the attacker can’t request profiles by changing the URL.
+
+Broken Access Control is when authorization is improperly enforced, allowing users access to privileges they should not have. This category is more about vulnerabilities within the authorization system than it is about bypassing the system entirely. Because broken access control is such a broad category of vulnerabilities, it can have a wide range of consequences. Access to sensitive user data is one fairly common result, but the sky’s the limit.
+
+Broken access control has no single method of mitigation. Mitigation can involve things like rate limits for logins, ensuring server-side validation of requests, and implementing default-deny for permissions.
+
+Instructions
+In the workspace, you can see a website’s user directory. You’d like to view the profile of an unsuspecting victim and steal their data, but unfortunately, you are not authorized to view their profile.
+
+Not to worry though, because this website suffers from Broken Access Control.
+
+First, click on “See our user directory!” to see the profiles available to view.
+
+Try viewing “unsuspecting_victim”‘s profile. You’ll notice you’re locked out!
+
+Return to the user directory.
+
+If you view your own profile (uber_haxor), you will notice that your username shows up in the URL:
+
+https://localhost/users/uber_haxor.html
+
+What would happen if you were to replace your username in the URL with “unsuspecting_victim” instead?
+
+Hint: Change the URL to:
+
+https://localhost/users/unsuspecting_victim.html
+
+and press enter.

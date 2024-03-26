@@ -1,0 +1,154 @@
+Introduction to Synchronization
+In this lesson, we will learn about synchronization which ensures that threads in a multi-threaded program use shared resources safely.
+
+Recall that the power of multi-threading comes from the ability to take one big task and split it up into a number of smaller tasks that can be executed concurrently. Using multi-threading, a five-second task split into five parts may only take one second to complete. With most multi-threaded programs, though, our threads will need to share some resources.
+
+Sharing, in this context, means that each thread should at some point gain access to the resource so that it may do its work, but that only one thread may have access to it at a time.
+
+Programmatically, these resources are used in various places in our code. These areas are known as critical sections. In order to synchronize our programs, we must ensure all critical sections have the following three properties:
+
+Mutual exclusion: only one thread can be inside the critical section at a time
+Progress: if no thread is inside the critical section, then a thread trying to access it must be allowed to do so
+Bounded waiting: each thread waiting to access the critical section must, at some point, gain access
+If we use our synchronization tools to make sure these conditions are met for every critical section, then we have successfully synchronized our program.
+
+
+
+
+Race Conditions
+If an outcome is deterministic, then that outcome is not in any way dependent on chance. The heads-or-tails outcome of flipping a coin where both sides are heads is deterministic because we know that no matter how we flip it, it will always come up heads.
+
+This is how we want our programs to be – deterministic. Unless we explicitly include an element of randomness, we want our programs to behave the same way each time we run them.
+
+A singly-threaded program is inherently deterministic. When the program has a single thread, the order in which those tasks are executed is the same every time.
+
+In multi-threaded programs, since the tasks are executed concurrently, the sequential order of tasks is not guaranteed. In other words, they are non-deterministic and to some extent, random. When this randomness affects the behavior of the program, we have what is known as a race condition.
+
+Consider the following situation depicted in the animation to the right. We have a program with the expression x = 3 and two threads. The job of thread_one is to execute x = x * 2 and the job of thread two is to execute x = x + 1.
+
+In case 1, thread_one executes before thread_two and by the end of our program’s execution, x has a value of 7.
+
+In case 2, thread_two executes before thread_one which means x will equal 8 by the end of execution.
+
+In the following exercises, we will look at another example of a race condition as well as ways we can synchronize our programs in order to avoid them.
+
+
+
+
+The Increment a Number Problem
+Consider the following problem. Given a number,x, which has been initialized with the value 0, create a program that increments x one-hundred times so that when the program is finished executing, x equals 100.
+
+We could implement this program without concurrency, using a single thread which increments x once, then again, and again until it has done so one-hundred times.
+
+Alternatively, we could write a program that spawns one-hundred threads which will individually increment x once, but collectively increment x one hundred times.
+
+Such a program might look something like the image to the right.
+
+Does this work? The answer is almost certainly not. That might seem strange now, but to understand why let us discuss what actually happens when our processor executes the x = x + 1 operation.
+
+From the processor’s perspective this seemingly simple task actually takes three operations to complete:
+
+Move the value of x into a register
+Add 1 to that value
+Set the value of x to be the value in that register
+Consider what can happen when two threads attempt to increment x at the same time. If Thread 1 and Thread 2 both move the value of x into a register before the other has completed its work, our processor could potentially execute these six operations in the following order:
+
+Order	Operation
+1	Thread 1 moves 0 into register A
+2	Thread 2 moves 0 into register B
+3	Thread 1 adds 1 to the value in register A
+4	Thread 2 adds 1 to the value of register B
+5	Thread 1 sets x to the value in register A
+6	Thread 2 sets x to the value in register B
+So now two threads have both completed their task of incrementing x, and yet x = 1. Note that a perfect interleaving of operations is unnecessary to get this result. All that is necessary is for the first operation of each thread (loading the value of x into a register) to take place before the final operation of the other is finished.
+
+That x has not been incremented properly is the result of this race condition. To fix this, we must make sure that only one thread can modify x at a given time. In the next exercise, we discuss one way to do this.
+
+
+
+
+Locking
+Recall that a program is synchronized when each critical section satisfies the mutual exclusion, progress, and bounded waiting conditions.
+
+Our program from the last exercise failed because multiple threads were allowed to access x at the same time in defiance of the mutual exclusion condition. Remember that condition says that there must only be one thread at a time with access to a critical section.
+
+A common way to fix this issue is with a mutual exclusion lock, or mutex.
+
+To understand this concept, let’s take a look at how we can use a mutex to synchronize our increment-a-number problem.
+
+Previously, our increment() function contained one line, x = x + 1, which was the only critical section in our program. Now, as we can see with the image on the right, we have surrounded our critical section with functions of our mutex object, lock() and unlock().
+
+If a thread calls lock(), it receives the mutex. If thread_one calls lock(), the mutex, mtx, will belong to it. Any other thread that calls lock() on mtx will wait indefinitely until thread 1 releases it by calling unlock().
+
+Think of the critical section as a room only one person is allowed in at a time. A mutex is like the lock on the door. One person enters the room and locks the door behind them while the others wait outside. Once that person leaves, they unlock the door which allows for the next person to enter, and so on.
+
+This pattern of receiving the mutex, incrementing x, and giving up the mutex will repeat until every thread has called increment(), completing the program.
+
+
+
+
+Condition Variables
+Consider the following example: two people work at a guitar store. One person makes guitars while the other sells them, but both keep track of their inventory number as they create and sell the guitars. Take a look at the pseudocode to the right to see how we could simulate this situation using threads.
+
+We create two threads representing a maker and a seller. When the maker thread calls make_guitar(), the num_guitars variable is incremented. When seller thread calls sell_guitar(), num_guitars is decremented as long as num_guitars is greater than 0.
+
+Both threads must access the shared variable num_guitars which means, in order to synchronize our program, we must enforce mutual exclusion on num_guitars.
+
+Up until now, locking was our only tool to achieve this. Using locks, the seller thread could continuously request a lock on num_guitars, check whether it was greater than one, and then unlock it. This lock, check, unlock cycle is incredibly inefficient.
+
+A more efficient way to handle this is to notify the seller thread when num_guitars is greater than 0. We can do this by using what is called a condition variable.
+
+Let’s walk through sell_guitar(). First, the seller thread locks guitar_mtx so it can check that the value of num_guitars() is greater than 0. While num_guitars == 0 is true, the seller thread waits indefinitely to continue executing until the condition becomes false. It does this by calling the wait() function on the condition variable, guitar_cv, and passing it into guitar_mtx. The wait() function frees the mutex, allowing the maker thread to execute, and then waits for the signal to continue.
+
+On the maker thread side, each time it calls make_guitar(), num_guitars is increased by 1, and the condition variable is notified. The notification alerts the seller thread, which then locks the mutex again and continues on with execution.
+
+The biggest advantage here is that the seller thread is not constantly requesting the mutex to check whether num_guitars is greater than 0. It simply waits to be notified, then retrieves the mutex.
+
+
+
+
+Atomic Variables
+Recall the increment-a-number problem. In the no-locks solution, the race condition arose because the x = x + 1 operation actually takes place in three atomic steps. If two threads try to complete those steps at the same time, the value of x will not be set properly.
+
+The solution from exercise three was to use locks to ensure that only one thread at a time had access to x. But there is another solution which is far simpler: make x an atomic variable.
+
+An atomic variable is a variable that can be modified in an inherently thread-safe manner without the use of locks or any other synchronization mechanism. The variable is atomic because the operations required to modify it take place, from our threads’ perspective, in exactly one atomic step.
+
+So, if we simply declare x with type atomic_int, we can forgo using locks to synchronize our program. Because each x = x + 1 operation will take place in one atomic step, by definition, it cannot take place concurrently with any other atomic step. So, we are at no risk of a race condition.
+
+
+
+
+Semaphores
+One of the classic problems in synchronization is the producer-consumer problem (also known as the bounded buffer problem). We can think about the problem like this: let us return to our guitar store where we are constantly both selling the guitars we have in stock as well as making new ones. But we only have enough space in our store to hold n guitars at a time.
+
+Programmatically, we can represent the spots for guitars in our store as places in a buffer. Since we can have a maximum of n guitars in the store at a time, our buffer is of length n. The problem we face is synchronizing the buffer such that multiple threads can write to it and read from it in a thread-safe manner.
+
+There are two rules: if the buffer is empty, no thread can read from it, and if the buffer is full, no thread can write to it.
+
+One solution could be for each thread to lock the entire buffer, see whether it can do its operation, and then unlock it. But consider how inefficient this is, especially as n becomes large and the number of threads increases. If we can hold five thousand items and have a hundred threads writing to and reading from our buffer, then each time a thread performs a task, the other ninety-nine are forced to wait.
+
+The best solution is to use semaphores. Semaphores are essentially just integers that will keep track of two values, num_free for how many empty places and num_occupied for how many occupied places there are in the buffer.
+
+write()
+    wait until num_free > 1
+        decrement num_free
+    add to the buffer 
+    increment num_occupied
+
+read()
+    wait until num_occupied > 1
+        decrement num_occupied
+    read from the buffer
+    increment num_free
+As a result, the adding and removing of items from the buffer and corresponding semaphore values will look like the graphic to the right. As elements are added to the buffer, the number of taken spaces increases, and the number of empty spaces decreases. The same occurs in reverse when elements are removed from the buffer. When there are no empty spaces, the producer thread must wait. Conversely, when there are no taken spaces, the consumer thread must wait.
+
+
+
+
+Wrap Up
+Congratulations on completing this lesson on synchronization! Multi-threading is the backbone of any complex computer program, and synchronization is what allows us to multi-thread our programs safely. Let’s recap what we learned.
+
+With locks, we are able to provide mutual exclusion on areas of our code where threads must access shared resources. In other words, locks make sure that only one thread at a time can access certain areas of our code.
+
+Locks are not the only way to synchronize our programs. Atomic variables, for instance, are inherently thread-safe because modifying them takes place in exactly one atomic step. Condition variables and semaphores likewise allow us to synchronize our programs while preserving efficiency in cases where locking the entirety of a large resource is not a good option.

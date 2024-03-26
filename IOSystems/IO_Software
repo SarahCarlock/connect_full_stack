@@ -1,0 +1,115 @@
+Review
+Great job reaching the end of the lesson! Let’s review what we have learned about IO software:
+
+The user-space is the place in memory in which user processes run and the kernel-space is the place in memory in which the kernel functions and manages system calls.
+The user-space interacts with the kernel by sending system calls to the kernel-space.
+Layers of the IO system that support kernel-space include: device-independent software, device drivers, interrupt handlers
+Layers of the IO system that support user-space include: user-level IO software
+Device drivers are device-specific code that is added to a computer so that a device may interact with a computer.
+The interrupt handler is a pool or queue of interrupts being sent to the CPU.
+Device-independent software refers to the software components that handle functions that are not specific to any single IO device.
+
+
+
+
+
+Introduction to IO Software
+IO devices refer to any physical devices that interact with a CPU. The physical devices send signals to computers and receive information from computers. The role of IO software is to receive signals from physical devices, interpret them and then perform tasks accordingly through the operating system.
+
+IO software refers to the code that interprets those signals and plans the execution of IO requests. There are different types of IO software to handle different tasks. Some IO requests can be processed by software that is more generic and meant for multiple devices.
+
+For example, the software used to accomplish the request to retrieve and store data to a hard drive is similar to the software used to retrieve and store data from a USB. This type of software is referred to as device-independent software. Other IO requests can be processed by software that is designed for specific devices. This type of software is known as a device driver. An example of a device driver may be the software you install to your computer to be able to connect a printer.
+
+In this module, we will dive deeper into the many layers of IO software along with its functions.
+
+Instructions
+Take a look at the image to the right. It provides an example of how the CPU uses code to interpret the interactions a computer has with such a variety of IO devices.
+
+
+
+
+User-space, Kernel-space, & Hardware
+IO software is necessary to the functionality of IO hardware. Consider a car. The car’s main structure is the hardware: the wheels, the engine, etc. The hardware isn’t solely responsible for making the car functional; user-space and kernel-space play a vital role in the software aspect of this process.
+
+The user-space is the space in memory that holds and runs user processes. Think about when we connect our Bluetooth device to the audio system of a car. The memory in which the Bluetooth mounts to the car can be considered to be the user-space. Pressing play or selecting a song on different phones can be considered independent calls that exist in user libraries that access the kernel through calls, and result in output in the car. User libraries hold more complex, modifiable, user-controlled code that interfaces with the kernel.
+
+The kernel-space is the place in memory where the kernel performs its functionality. The software behind the Engine Control Unit (ECU) of a car is the kernel-space. Just like the ECU controls or manages the electric functions of a car, the kernel manages resources and requests. The kernel manages the scheduling of tasks, buffering (storing data in memory when transferring between a computer and IO devices), spooling (holding output data for an IO device), etc.
+
+Instructions
+Examine the table to the right - it provides an example of how hardware, user-space, and kernel-space work together as necessary components of a car.
+
+
+
+
+
+
+User-space, Kernel-space, & Hardware
+IO software is necessary to the functionality of IO hardware. Consider a car. The car’s main structure is the hardware: the wheels, the engine, etc. The hardware isn’t solely responsible for making the car functional; user-space and kernel-space play a vital role in the software aspect of this process.
+
+The user-space is the space in memory that holds and runs user processes. Think about when we connect our Bluetooth device to the audio system of a car. The memory in which the Bluetooth mounts to the car can be considered to be the user-space. Pressing play or selecting a song on different phones can be considered independent calls that exist in user libraries that access the kernel through calls, and result in output in the car. User libraries hold more complex, modifiable, user-controlled code that interfaces with the kernel.
+
+The kernel-space is the place in memory where the kernel performs its functionality. The software behind the Engine Control Unit (ECU) of a car is the kernel-space. Just like the ECU controls or manages the electric functions of a car, the kernel manages resources and requests. The kernel manages the scheduling of tasks, buffering (storing data in memory when transferring between a computer and IO devices), spooling (holding output data for an IO device), etc.
+
+Instructions
+Examine the table to the right - it provides an example of how hardware, user-space, and kernel-space work together as necessary components of a car.
+
+
+
+
+Layers of IO Systems
+In IO systems, IO software is made up of multiple layers due to the many different responsibilities they have. These layers include the following:
+
+User-level IO software or user processes: This is the level at which IO requests are made. It is at this level that a system call is made in the user-space to be sent to the kernel-space.
+Device-independent software: This layer refers to software components that are generic and applicable to multiple devices. These calls are not dependent on or exclusive to any single IO device.
+Device drivers: This layer refers to the software components that are specific to an IO device. They often code snippets that have been developed by the manufacturer of the IO device and must be installed by the user before the IO device can interact with a computer.
+Interrupt handlers: Interrupt handlers are snippets of code that provide the functionality to device drivers. They process interrupts made by IO devices.
+Hardware: This layer refers to the physical IO device which interacts with device drivers through input such as pressing a key on a keyboard or output such as displaying data onto a screen.
+Instructions
+Take a look at the image to your right - it provides a breakdown of the layers of an IO system, and groups them into the following three categories: user-space, kernel-space, and hardware.
+
+
+
+
+Device Drivers
+Device drivers are software components, or blocks of code, that are specific to a device. They are often written by the manufacturer of IO devices and must be installed into a computer before an IO device may successfully interface with a computer. The chunks of code are part of the kernel-space because once they are installed, they don’t require user involvement to interact with device controllers.
+
+Unlike device-independent IO software, device drivers are great for taking IO hardware beyond generic functionality. Device drivers allow for an IO device to be used to perform tasks that are specific to its hardware.
+
+There are two types of device drivers:
+
+Kernel-mode drivers: These drivers allow for basic functionality on a CPU. They even contribute to the start-up of an operating system when we turn on our computers.
+User-mode drivers: When a user adds additional hardware to their computer, that additional hardware comes with its own set of drivers that need to be installed. For example, when we are in the process of installing a new printer and connecting it to our laptop.
+Instructions
+Take a look at the image to your right. It is a pictorial representation of a CPU that shows us where device drivers exist. Note that both user-mode, and kernel-mode drivers are in the kernel-space. The image shows how device drivers receive interrupts and processes, and output processes.
+
+
+
+
+Device-Independent IO Software
+Unlike device drivers, device-independent IO software is not specific to any single IO device. It holds functions that are more generic and can be used by all devices. It includes generic interface calls, buffering, providing a generic block size that an IO device and the computer can use to transfer data, etc. Generic interface calls include initializing the hardware, allocating resources, turning off a device, etc. Device-independent sofware calls for buffering refer to storing some data in memory when transferring it from one device to the other.
+
+Device-independent software also has the capability to report errors that occur between the interaction of IO devices and the computer. Due to the fact that device-independent software must be applicable to all devices that connect to a computer, its functionality is not extremely complex or intricately connected to any single device and can be handled in the kernel-space in IO systems.
+
+Consider the following functions of a car: displaying mileage on a dashboard and what song is playing on the media system screen. Both these tasks are different, but a similar subtask they share is retrieving data from memory and outputting it to a screen to be displayed. This subtask can be executed through device-independent IO software. Although both screens are different, the code to retrieve the data to be displayed is the same.
+
+Instructions
+Take a look at the flow diagram to the right.
+
+It shows how two distinct tasks can use one IO component as part of their subtasks. Both the tasks are displayed in two different colors and have labeled arrows to show what subtask they will be executing. The device-independent software can receive these subtasks, and provide a generic request to the memory. The memory then responds with the correct information, which is then sent back as a response to the original request.
+
+
+
+
+Interrupt Handlers
+In the IO hardware lesson, we learned that interrupts are hardware mechanisms that send signals when an IO device needs the computer’s attention.
+
+Interrupt handlers refer to the software components that manage the pool of interrupts that are sent to the CPU. Interrupt handlers receive and acknowledge that a signal has been received, place it in a queue, and execute the interrupts by priority. When an interrupt is received the interrupt handler notifies the CPU. The CPU will then halt its current processes, and wait for the execution of the interrupt before continuing.
+
+Consider pressing a keyboard button and trying to turn up the volume on a computer at the same time. Although it may seem to be simultaneous, the computer will place both in a queue based on when the signal is received by the interrupt handler. Once the interrupt by the first is completed (e.g. the keyboard button is displayed on a word processing document), the second one will begin execution (the volume is adjusted).
+
+Instructions
+Take a look at the animation to the right. This animation shows how multiple IO requests that are made almost simultaneously are processed by interrupt handlers through execution.
+
+
+
+

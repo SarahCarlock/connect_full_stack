@@ -1,0 +1,46 @@
+PREVENTING CROSS-SITE SCRIPTING (XSS) ATTACKS
+Reflected XSS Attack
+Let’s now explore how Reflected XSS attacks work.
+
+In a Reflected XSS Attack, the payload is not stored in a database, it’s reflected onto the site.
+
+We saw that, in a DOM-Based attack, the vulnerable code lived within the .html file. In the case of the Reflected XSS attack, the vulnerable code will live on the server. Specifically, where the request is being sent.
+
+A user might get sent this malicious link:
+
+http://www.somesite.com/profile?name=<script>maliciousFunc(variable)</script>
+
+Note: Remember that in real life, the actual link would be encoded so it doesn’t look obvious that it’s a suspicious link.
+
+The site might send a GET request to /profile for example. Within that GET request, the vulnerable code would be corrupted and execute the malicious code that’s sent with the payload.
+
+An attacker could send a malicious link to a victim with code that retrieves a victim’s cookies or other important information. Then, the code will send that information directly to the attacker’s personal server.
+
+Instructions
+Checkpoint 1 Passed
+1.
+In app.js, take a look at the /search request and explore how the code is vulnerable to attacks. What could an attacker do to take advantage of this vulnerability?
+
+Press Check Work once you think you’ve found the vulnerable code.
+
+
+Hint
+Since there is no sanitization of user data, an attacker could create a URL and add malicious code as the search query parameter. This could result in the malicious code being executed.
+
+Checkpoint 2 Passed
+2.
+Type node app.js into the Terminal to start the node server. Make sure to refresh the mini-browser.
+
+In the mini-browser, add a script tag after http://localhost:8000/search?q= in order to change the client’s background color red.
+
+Press Check Work once you think you’ve effectively attacked the mini browser.
+
+
+Hint
+This can be accomplished with the following code in the search field:
+
+<script>document.body.style.background = "red"</script>
+
+The URL should look as follows:
+
+http://localhost:8000/search?q=<script>document.body.style.background = "red"</script>

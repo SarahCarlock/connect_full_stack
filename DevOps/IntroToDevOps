@@ -1,0 +1,89 @@
+Introduction to DevOps
+A brief overview of DevOps culture, practices, and tools.
+
+Ariadne needs a new database server to support her new search feature. This should only take a few minutes but it’s stuck in the Operations team’s backlog! She might have to wait months for this simple task. What’s going on?!
+
+Ariadne’s company could use DevOps. DevOps is a culture supported by practices and tools. This culture enables Development and Operations teams to work together. The resulting collaboration aims to achieve faster and higher quality productions.
+
+In this article, we will provide an introduction to DevOps, its benefits, and key concepts. Throughout the article, we will provide links to the other articles you will encounter in this unit.
+
+First, let’s take a look at what Development and Operations teams do.
+
+Development vs. Operations Teams
+A traditional software company often has a Development and Operations team. The Development team writes an application’s features. The Operation team creates and maintains the infrastructure that the application runs on. The Development team sends its code to the Operations team, who deploys it on the infrastructure.
+
+Development teams send code to Operations. Operations sends back bug reports and issues.
+
+Developers sending new features to the Operations team creates a conflict. Developers want to produce new functionality as fast as possible. Operations members want the infrastructure to be stable and reliable. New changes are the biggest threat to the stability of a system. This difference in goals puts Development and Operations at odds with each other.
+
+Conflict and separation between the Development and Operations teams interfere with production. When an Operations team is separate from a Development team:
+
+Differences between environments can lead to difficult bugs.
+Handoffs between teams take time and can risk the loss of information.
+DevOps aims to end the divide between the teams, changing the production dynamic.
+
+The Benefits of DevOps
+DevOps seeks to integrate Development and Operations, by having them work together. By integrating Development and Operations teams, we can have:
+
+Consistent development, testing, and production environments 
+Fewer hand-offs and shared information and context
+Management of infrastructure with development tools
+With these outcomes, practicing DevOps achieves faster delivery of reliable software.
+
+Development and Operations sit at the same table. Code, infrastructure, and feedback flow between them.
+
+For DevOps to succeed, we need to change how Development and Operations interact. We need to create a culture in which collaboration can thrive.
+
+DevOps Culture
+The culture of DevOps is the most critical factor to its success. Collaboration cannot occur only from applying a set of practices and tools. It requires a culture in which collaboration can thrive. The central pillars of a DevOps culture include:
+
+Thinking about the whole production system, rather than a single department or part.
+Feedback loops allowing each part of the process to receive information and improve.
+A culture of continuous experimentation and learning.
+While these ideas are useful concepts, there needs to be a practical means of applying them. DevOps has a variety of practices that support its culture.
+
+DevOps Practices
+Some of the important practices that DevOps uses include:
+
+Automation: making manual processes occur automatically instead.
+Continuous Integration: the regular merging of contributor code into a central repository.
+Continuous Deployment and Delivery: automatically preparing code changes for release.
+Infrastructure as Code: representing aspects of infrastructure within source code files.
+Microservices: dividing up a business application into many small independent services.
+Monitoring: gathering information about the state of the system during runtime.
+A variety of tools can be used to implement these practices.
+
+DevOps Tools
+We can organize DevOps tools into some general categories. Many options exist for each type (click on each item to learn more!):
+
+Source Control Management
+
+ Source control management (SCM) tools help developers track and manage source code changes. Git is the most popular source control management tool. We offer a course on Git where you can gain hands-on experience!
+
+
+Environment tools
+
+Environment tools assist with the configuration of hardware and software for running code. Popular environment tools include Docker and Kubernetes.
+
+
+Automation tools
+
+Automation tools assist in performing routine tasks via scripts. Popular automation tools include Github Actions and Jenkins.
+
+
+Infrastructure as code
+
+Infrastructure as code (IaC) tools allow us to define infrastructure as source files. IaC allows us to manage and track changes to our infrastructure over time. Popular IaC tools include Docker, Chef, and Terraform.
+
+
+Testing
+
+Testing tools ensure the correctness of our code. Popular testing tools include Mocha and Jest.
+
+
+Try checking out some of these tools and integrating them into your next projects!
+
+Review
+DevOps is a culture, supported by practices and implemented with tools. DevOps culture seeks to enable collaboration between Development and Operations teams. As a result of this collaboration, we can produce reliable software more quickly.
+
+This article seeks to provide a high-level overview of DevOps. The articles linked throughout go deeper into many of its important subtopics. Follow these to explore the world of DevOps, or click “Next” for a more linear approach!

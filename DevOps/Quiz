@@ -1,0 +1,88 @@
+Question 1
+Fill in the blanks in the following sentence:
+    DevOps is a culture of collaboration between Development and Operations that is supported by practices and tools.
+
+Question 2
+Complete the following paragraph:
+    Deb and Janet want to know more about how customers are interacting with the products they are creating. They decide to create a metric for measuring the customers' satisfaction, the rate at which customers return to make a second purchase on the site. By using these measurements to guide the design of their offerings, Deb and Janet are creating a feedback loop. 
+
+Question 3
+Fill in the blanks in the following sentence:
+    DevOps seeks to reduce handoffs between teams, make environments consistent, and apply development best practices to infrastructure.
+
+Question 4
+Which of the following describes the mindset of a DevOps team?
+    Team members seek to communicate and share responsibilities across all aspects of production. DevOps culture places a strong emphasis on communication and shared responsibility.
+
+Question 5
+Which of the following describes the intended relationship between Development and Operations teams within a DevOps culture?
+    Development and Operations members working on the same team and sharing responsibilities. DevOps seeks to foster collaboration between members of Development and Operations, often combining them on the same team.
+
+Question 6
+Match the DevOps practice to its definition:
+    * Monitoring: gathering information about the state of the system during runtime.
+    * Continuous Integration: the regular merging of contributor code into a central repository.
+    * Infrastructure as Code: representing aspects of infrastructure configuration as source files.
+    * Continuous Delivery and Deployment: automatically preparing code changes for release.
+    * Microservices: dividing up a business application into many small independent services.
+    * Automation: making manual processes occur automatically.
+
+Question 7
+Complete the following paragraph:
+    When building a culture of continuous learning and experimentation, practices such as blameless retrospectives encourage seeing failure as something to learn from rather than punish.
+
+Question 8
+Complete the following paragraph:
+    When analyzing their production process, Kathy and Steven discover that most work items are stuck seeking department head approval. This is causing major delays. 
+
+    Receiving department head approval is an example of a bottleneck. By looking at the entire production process, and not just code development, Kathy and Steven are practicing systems-level thinking.
+
+Question 9
+Match the type of DevOps tool to its definition:
+    * Source control management: This type of tool assists with keeping track of and incorporating changes to code.
+    * Environment management: This type of tool assists with the configuration of hardware and software for running code.
+    * Automation: This type of tool assists in reducing manual work.
+    * Testing: This type of tool assists in ensuring that an application performs as expected.
+
+Continuous Integration & Development
+Quiz
+Question 1
+Fill in the correct branching strategy.
+ Trunk-based Development is where the main source repository is maintained with small changes and frequent merges.
+    Feature Branch Development is where long-lived branches are maintained, merging once entire features are complete.
+
+Question 2
+What is the process of using tools, scripts, and other software to perform aspects of software development and operations?
+    Automation. The goal of DevOps automation is to automate as much of the DevOps lifecycle as possible.
+
+Question 3
+Match the best practice terms to the definitions:
+    Feature Flags → Prevents users from seeing unfinished features by disabling parts of the code.
+    Dark Launching → Allows certain users to see new features in the project while others cannot.
+    Containerization → Provides standardized environments to be used across continuous integration, deployment, and delivery.
+
+Question 4
+Which is NOT a part of continuous integration?
+    Deploying the project.
+
+Question 5
+Fill in the blanks:
+    Before Continuous Delivery can be used in a project, Continuous Integration must be incorporated first due to the rapid merges, builds, and tests.
+
+Question 6
+One of the most popular automation tools designed for continuous integration, delivery, and deployment is:
+    Jenkins: enkins is one of the most popular tools for working with the CI/CD pipeline.
+
+Question 7
+Fill in the order of the CI/CD pipeline.
+    The CI/CD pipeline begins with rapid merges into a code repository and initial tests during Continuous Integration. Next, the build is moved to staging servers and tested again during Continuous Delivery. At this point the application is ready for production. Continuous Deployment automatically moves the build to a production server where it is visible to users.
+
+Question 8
+Match the CI/CD terms to the definitions.
+    Continuous Integration → Frequent merges into a single code repository after building and automated tests.
+    Continuous Delivery → Preparing a project to be deployed on a production server by moving the project to intermediary servers with tests.
+    Continuous Deployment → Automatically deploying a project to a production server.
+
+Question 9
+Which is NOT a benefit of using DevOps automation?
+    Rigid project structure. Using DevOps automation can make your project much more flexible.

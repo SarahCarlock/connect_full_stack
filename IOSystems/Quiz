@@ -1,0 +1,43 @@
+Question 1
+    Device drivers support communication between which two components?
+    CPUs and IO devices. Device drivers are software components that support communication between the hardware that makes up CPUs and IO devices.
+
+Question 2
+Which of the following is an example of a machine-readable device?
+    SD card. 
+
+Question 3
+True or False: In IO systems, blocking allows for the CPU to allocate its resources to continue processing other requests, and non-blocking waits for the current IO request to be completely executed before continuing.
+    False. Non-blocking allows for the CPU to allocate its resources to continue processing other requests, and blocking waits for the current IO request to be completely executed before continuing.
+
+Question 4
+Fill in the blanks to complete the following statement.
+    In IO systems there are two types of device drivers: kernel-mode and user-mode.
+
+Question 5
+Which of the following layers is NOT part of the kernel-space?
+    User-level software. User-level software exists in the user-space.
+
+Question 6
+Which of the following is NOT an example of blocking?Which of the following is NOT an example of blocking?
+An audio playing app that plays music in the background while a user finds a new song to add to the queue. This example shows us what non-blocking looks like because the music application continues to execute while the user adds songs to the queue.
+
+Question 7
+Fill in the blanks to complete the following statement.
+    In IO systems, IO software that exists in the kernel-space includes the following layers: device independent software which include software components that are generic and applicable to multiple devices, device drivers which includes software components that are specific to an IO device, and interrupt handlers which includes snippets of code that provide the functionality to device drivers. 
+
+Question 8
+Fill in the blanks to complete the following statement.
+    In IO systems, interrupts are a hardware mechanism that sends a signal to the CPU whenever an IO device needs the CPU's attention.
+
+Question 9
+True or False: Device-independent software refers to software components that are independently, and exclusively specific to a single IO device.
+    False. In IO systems, device drivers are software components that are exclusive to specific devices. Device independent software is software that can be used by multiple IO devices
+
+Question 10
+Fill in the blanks to complete the following statement.
+    In IO systems the three methods used by IO devices to read/write data are:
+    - the character method which organizes data sequentially and each byte is accessed one at a time
+    - the block method which organizes data into fixed block sizes allowing for random access
+    - the network method which is designed to allow for access across multiple devices
+

@@ -1,0 +1,107 @@
+Question 1
+An atomic operation is an operation that ___
+    will never take place concurrently with another operation.
+
+Question 2
+What happens when we enforce mutual exclusion on a critical section?
+    We ensure that no more than one thread can access that section of our program at a time. The mutual exclusion condition states that only one thread can enter a critical section at a time.
+
+Question 3
+What are the places where our program’s shared resources exist called?
+    Critical Sections. an area of our code that contains a shared resource and we must enfore mutual exclusion on 
+
+Question 4
+In the context of synchronization, a shared resource in a program is one that ____
+    multiple threads may need to access. In multi-threaded programs, shared resources are those that must be shared by a number of different threads and which need synchronization in order to avoid race conditions.
+
+Question 5
+Which of the following is not true of semaphores?
+    The number value of a semaphore is determined by the length of time which has elapsed since the last operation on the shared resource it tracks. While a semaphore can represent different values in different programs, the length of time since the last operation on the resource is irrelevant to whether a thread can execute a new operation on it. In nearly all cases, semaphores track (a) the number of resources being worked on and (b) the number of resources currently available to be worked on.
+
+Question 6
+True or false: If access to each of our program’s critical sections is guarded by mutual exclusion locks, the program is synchronized.
+    False. The mere presence of mutexes does not guarantee synchronization. For example, a program could have each of its critical sections guarded by mutexes and yet still encounter a deadlock. Since deadlocks break the bounded-waiting condition, these programs are not synchronized.
+
+Question 7
+Which of the following is a benefit of using condition variables as opposed to mutexes?
+    Using a condition variable allows a thread to be signaled when a certain condition arises rather than having to continuously check the condition itself.In areas where condition variables can be used, they are more efficient than mutex locks because they allow threads to be signaled when a given condition arises rather than continuously locking a mutex, checking on a condition, and then unlocking it.
+
+Question 8
+True or false: The behavior of singly-threaded programs is inherently deterministic.
+    True
+
+Question 9
+Which is not true of a program that contains race conditions?
+    A program with race conditions will behave differently each time we run it. Race conditions may cause a program to behave differently from one run to the next, but since race conditions add randomness to our programs behavior, it is also possible that the behavior will be the same
+
+Question 10
+Which of these synchronization tools allows threads to keep track of the number of resources currently available?
+    Semaphores. A semaphore keeps track of the number of shared resources currently taken or available.
+
+Question 11
+Which of the following is not true of condition variables?
+    A thread must continuously check the value of a condition variable in order to know when to execute. A condition variable alerts the thread when the condition is met; the thread does not need to continuously check.
+
+Question 12
+Which of the following is true of a synchronized program?
+    A synchronized program will not allow multiple threads to access a critical section at a time. By definition, when a program is synchronized, no more than one thread will ever be able to access a critical section at a time.
+
+Quiz
+
+Question 1
+    An address
+
+Question 2
+Which of the following is true of virtual memory?
+    Virtual memory provides the ability to sandbox user-space processes so that the only memory they have access to is the memory they need to operate. Virtual memory prevents user-space processes from being able to access memory that doesn’t belong to them.
+
+Question 3
+Which of the following is NOT true of dynamic loading?
+    If a program is loaded dynamically, the entirety of that program is not loaded into memory at runtime.
+
+Question 4
+A segment of memory is how many bytes long?
+    The length of segments vary. Segments are blocks of memory whose length depends entirely on what is being stored there.
+
+Question 5
+When all parts of a program (including all of its dependencies) are combined into a single executable file, this is called ___
+    Static linking. When a program is linked statically, the program and all its dependencies are linked up into a single executable file that our computer has the ability to run.
+
+Question 6
+Which of the following is true of segmentation?
+    Segmentation can lead to an inefficient organization of data (known as fragmentation). Since segments are of differing lengths, over time as segments of data enter and leave memory, the blocks of contiguous free memory tend to become smaller (and thus the memory becomes more fragmented).
+
+Question 7
+True or false: Paging avoids the fragmentation problem by allocating memory in equal-sized blocks.
+    True. Unlike with segmentation, every page that enters and leaves memory will be page-sized, the length of contiguous blocks of free memory will stay the same which, by definition, avoids the fragmentation problem
+
+Question 8
+Which of the following is not true of pages?
+    The size of a page in memory can vary from page to page.
+    The size of a segment in memory can vary, but pages are all of equal sizes.
+
+Question 9
+True or false: The kind of memory closest to the processor is known as main memory, or RAM.
+    False. Registers are where the data the processor is actually performing operations on is stored.
+
+Question 10
+Which of the following kinds of memory is furthest away from the processor?
+    Disk is a form of deep storage; it can store the most data but it is also the furthest storage from the processor. For that reason, it takes the longest to move data from disk to the processor.
+
+Question 11
+Which of the following is true of loading?
+    Loading is the process of moving the information belonging to a process into main memory (RAM) so that is can execute.
+    Loading moves process data into main memory so that the process can execute. It can occur statically or dynamically; that is, we can load into main memory all of the data necessary for the process to execute at the very beginning, or we can load it as we need it.
+
+Question 12
+If the operating system inserts data into memory, it is considered ___
+    Allocated. A block of memory where data is currently being stored is allocated.
+
+Question 13
+The connection between virtual and physical memory is called a ___
+    Mapping. Addresses in virtual memory map to addresses in physical memory where the actual information is stored.
+
+Question 14
+Which of the following is a role of the operating system?
+    To control how processes utilize the computer’s memory. One of the roles of the operating system is to control the use of the computer’s shared hardware resources including its memory.
+    

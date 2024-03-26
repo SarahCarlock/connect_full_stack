@@ -1,0 +1,86 @@
+Question 1
+True or False:
+Insecure Deserialization is NOT particularly dangerous.
+    False, Insecure Deserialization is very dangerous. Insecure Deserialization is very dangerous; in the worst case, it can lead to remote code execution.
+
+Question 2
+True or False:
+Most vulnerabilities that attackers exploit are already public knowledge, and many have fixes readily available for them.
+    True, most vulnerabilities that attackers exploit are already public knowledge, and many have fixes readily available for them. It’s usually easier for attackers to exploit already known vulnerabilities than to find brand new ones.
+
+Question 3
+What vulnerability is characterized by a lack of records and information about the events taking place within a system?
+    Insufficient Logging and Monitoring
+
+Question 4
+True or False:
+Some XSS attacks can involve a website storing malicious code and then displaying it to other users.
+    True, some XSS attacks can involve a website storing malicious code and then displaying it to other users. This is called Stored XSS.
+
+Question 5
+What vulnerability is described as the improper configuration of software in a way that degrades security?
+    Security Misconfiguration
+
+Question 6
+What vulnerability is described as the insufficient or improper protection of sensitive data?
+    Sensitive Data Exposure
+
+Question 7
+True or False:
+Security Misconfiguration ONLY involves security software.
+    False, Security Misconfiguration does NOT only involve security software. Security Misconfiguration can involve software other than just security software.
+
+Question 8
+True or False:
+In the worst cases, XXE can allow for remote code execution on vulnerable devices.
+    True, in the worst cases, XXE can allow for remote code execution on vulnerable devices. XXE can be really dangerous!
+
+Question 9
+True or False:
+Insufficient Logging and Monitoring is only an issue after an attack has occurred.
+    False, Insufficient Logging and Monitoring is NOT only an issue after an attack has occurred. While it does cause problems in the aftermath, it also gives attackers more time to do damage during the attack.
+
+Question 10
+What is NOT a reason that Sensitive Data Exposure is dangerous?
+    Sensitive Data Exposure is dangerour because it can allow an attacker to execute arbitrary code on the server running the website. (As data protection laws continue to evolve, companies have an increasing legal obligation to protect senstive data they store.)
+
+Question 11
+What vulnerability involves an interpreter being tricked into treating untrusted data as code/behavior? 
+    Injection
+
+Question 12
+Why is Broken Authentication dangerous?
+    It allows attackers to impersonate other users.
+
+Question 13
+What vulnerability involves unsanitized user input being interpreted as javascript in a browser?
+    Cross-Site Scripting (XXS)
+
+Question 14
+Why is Injection dangerous?
+    It allows an attacker to view or tamper with data, and possibly run code on the server hosting the website. Injection attacks can lead to data loss, data destruction, and system compromise.
+
+Question 15
+What vulnerability involves using insecure versions of software or frameworks within an environment?
+    Using Components with Known Vulnerabilities
+
+Question 16
+What vulnerability involves insecure implementations of authentication systems?
+    Broken Authentication. (While security misconfiguration could potentially play a role in real-world instances of this, it’s not the main vulnerability.)
+
+Question 17
+What vulnerability is described as a failure to enforce and maintain levels of authorization?
+    Broken Access Contol
+
+Question 18
+A piece of maliciously crafted XML manipulates an XML processor to produce unintended behavior. What vulnerability in the OWASP Top 10 best describes this scenario?
+    XML External Entities
+
+Question 19
+What vulnerability involves a stream of formatted data being maliciously modified before being interpreted as an object within code?
+    Insecure Deserialization 
+
+Question 20
+True or False:
+Broken Access Control can lead to other vulnerabilities being exploited.
+    True, Broken Access Control can lead to other vulnerabilities being exploited. Broken Access Control lends itself well to opening up new opportunities for attackers.

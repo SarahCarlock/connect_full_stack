@@ -1,0 +1,60 @@
+PREVENTING CROSS-SITE SCRIPTING (XSS) ATTACKS
+DOM-Based XSS Attack
+In this exercise, we’ll take a closer look at DOM-Based XSS Attacks.
+
+A DOM-Based XSS attack occurs when an attack payload is executed by altering the DOM in the victim’s browser.
+
+The DOM (Document Object Model) is a convention used to represent and work with objects in an HTML document. When a client-side script is executed, it can access various properties of the page and change their values. Websites are usually vulnerable to DOM-Based XSS attacks because of bad JavaScript code altering the front end.
+
+Let’s assume that a site is running code to render a name dynamically, and this code lives within dashboard.html. The code to render the name dynamically might look something like this:
+
+greeting.innerHTML = "Welcome " + name + "!";
+
+Notice how this code is changing the HTML of the page using innerHTML. If an attacker wanted to implement a DOM-Based XSS attack they would inject malicious code into the name input field instead of a plaintext name. Instead of sending their name, an attacker could input a value like:
+
+<script>alert("This is an attack!");</script>
+
+The alert function will then be propagated to the webpage to be executed. Some webpages might accidentally allow for code to be injected in the URL as well. For example, the following URL expects a name as a parameter:
+
+http://www.somesite.com/userpage.html?name=jorge
+
+This could potentially allow the attacker to effectively do:
+
+http://www.somesite.com/userpage.html?name=<script>maliciousFunc(variable)</script>
+
+In reality, the attacker would disguise the URL using a URL shortener so that it is not obvious it contains a script. The encoded URL might look like this:
+
+https://www.somesite.com
+
+Instructions
+Checkpoint 1 Passed
+1.
+Take a look at dashboard.html and the code written between the <script> tags. What exactly is being done here? Where does the vulnerability lie?
+
+Press Run once you think you’ve found the vulnerable code.
+
+
+Hint
+In this case, we’re using .innerHTML and .outerHTML which could both allow an attacker to run JavaScript code by injecting it into our text field.
+
+Checkpoint 2 Passed
+2.
+Try injecting JavaScript code into the First Name or Hobby field and pressing Receive Your Greeting!
+
+Press Run once you think you’ve tried a hack even if the attempt is unsuccessful.
+
+
+Hint
+You may notice that alert()s like alert("Scary message here"); don’t work if you try to inject them into either of the fields on this page. That’s okay. In the next checkpoint, we’ll try another approach.
+
+Checkpoint 3 Passed
+3.
+img tags have a common attribute called onerror that executes javascript code instantly if an image does not exist.
+
+In the mini-browser, attempt to inject an alert with the text “Hacked!” by adding an img tag with "bad_image" as the src attribute. It should look like:
+
+<img src="bad_image" onerror="alert('Hacked!')">
+
+You should see a popup on the screen that says “Hacked!”.
+
+Press Run once you think you’ve successfully hacked the mini-browser.

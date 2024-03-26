@@ -1,0 +1,99 @@
+
+There are different types of IO devices that can be categorized into three general categories: human-readable, machine-readable, and communication.
+There are two types of device drivers: kernel-mode and user-mode. Device drivers support the communication between IO devices and the CPU.
+There are three methods that IO devices use to read/write data: character, block, and network.
+In IO systems, blocking is a method in which when an IO makes a request, an application typically cannot continue executing other requests until it has the necessary information changes from the IO.
+In contrast, non-blocking requests get placed into a queue while waiting so that the CPU resources can be used to complete other tasks from the event pool of an application.
+The interrupt handler is like a pool or queue of interrupts being sent to the CPU. It handles the execution of interrupt signals as they are received from IO devices.
+Memory-mapped IO refers to a system that is designed to allow both an IO device that is connected to a computer and the memory of the computer to share address space to the interface.
+Direct memory access (DMA) refers to a method in which IO devices have direct access to the main memory of a computer. For DMA, a CPU will trigger the execution of data to/from an IO device to a computer, but then will continue to complete other tasks while the data transfer executes.
+
+
+
+
+
+
+
+Introduction to IO Hardware
+IO, or Input/Output, devices refer to any physical devices that interact with a CPU. Input devices send signals to a computer and output devices allow for computers to send information out from a computer.
+
+When it comes to devices, we mainly think of examples that require direct human interaction; however, the large range of IO devices can be categorized into three categories: human-readable, machine-readable, and communication.
+
+Human readable devices are devices that can be interpreted/understood in a natural language structure by humans. Some examples include printers, keyboards, and a mouse.
+
+Machine readable devices are devices that are formatted to allow communication between different hardware, without the need for human interpretation. Some examples include hard drives/disks, controllers, and SD cards.
+
+Communication devices are devices that allow devices to interact over a network. A network is a set of devices that are linked to share some resources over a shared medium. Some examples of communication devices include modems and Bluetooth adapters.
+
+
+
+
+Drivers & Controllers
+Device drivers and device controllers are important components of IO systems. Device drivers exist as software programs that the OS uses to communicate with device controllers. Device controllers are hardware units that work as an interface between physical IO devices, and device drivers. An interface can be thought of as a bridge that brings the software side and hardware side together.
+
+Device drivers and controllers are crucial for different IO devices to communicate with the OS. Consider them to be like a translating service. If one person speaks fluent Spanish, and another person only speaks English, a translator, who understands both languages is necessary for meaning making in the conversation. Similarly, device controllers work as a translator between an operating system that may understand code, and hardware that uses signals. The device drivers can be thought of as the service the translator provides.
+
+Instructions
+Take a look at the image to the right. Device controllers are the hardware component that is included in the image. As the image shows, device drivers can be categorized into two types: kernel and user. There are two types of drivers because they have different uses which will be discussed in the next exercise!
+
+
+
+
+Transferring Data
+In order for data to be successfully transferred between IO devices and the CPU, it is important that the data can be written and read over some medium. Devices are designed to read or write data in one of the following three ways:
+
+Character devices are represented as a sequential series of bytes. They are accessed one byte at a time. The operating system interacts with these devices with read/write system calls. One example of a character device is a USB. A USB has data written on it in a sequential manner.
+
+Block devices have memory stored in blocks of a fixed size. They allow for system calls where memory does not need to be read sequentially. Block devices allow for “random access”, meaning we can read or write to any place within the device. Most devices have blocks of the size 512 bytes or greater. Hard disks are a perfect example of block devices.
+
+Network devices are different from character and block devices because they require a different interface (such as a socket interface) for access to other devices. An example of a network device is an ethernet card which is used to send and receive data over multiple devices.
+
+Instructions
+The image to the right provides some examples of block, character, and network devices.
+
+What are some additional examples you can think of?
+
+
+
+
+Blocking vs. Non-blocking
+IO devices and operating systems communicate via data packets known as IO requests. When an IO device makes a request an application can respond in one of two ways: blocking, and non-blocking.
+
+Blocking Requests
+Most IO requests are considered blocking requests. When the IO makes a request, an application typically cannot continue executing other requests until it has the necessary information changes from the IO. Therefore, blocking calls requires a process to stop and wait for input/output. Consider a word processing software - when we have a new document open, the application halts while waiting for the user to type some words.
+
+Non-blocking Requests
+Non-blocking requests get placed into a queue while waiting so that the CPU resources can be used to complete other tasks in an event pool. The event pool is the queue mentioned earlier. IO device responses can be handled later, as long as the request has been acknowledged by the OS. Non-blocking is also commonly referred to as asynchronous. Think about a collaborative application in which there are multiple requests being made by different users simultaneously. The application does not halt for every user each time it is waiting for some input from a single user.
+
+Instructions
+Take a look at the animation. It provides a real-life example as an analogy of blocking vs non-blocking.
+
+The left side of the image shows us how blocking works - because one employee is handling all orders, the other customers must wait for their request to be processed while the previous request is being completed. The right side of the animation is an example of non-blocking - having two employees working allows for one to receive requests from customers, while the other employee processes them.
+
+
+
+
+Interrupts & Polling
+An interrupt is a signal that is sent from the hardware of an IO device to a computer to get its immediate attention. Because interrupts are handled on the hardware’s end, they decrease overhead on the software side. When a device sends an interrupt signal, the CPU is notified via some trigger and will immediately halt the task at hand. It will send the interrupt over to an interrupt handler. The interrupt handler is like a pool or queue of interrupts being sent to the CPU. Once the interrupt has been responded to, the CPU can go back to resuming its task.
+
+As an example, consider going to the grocery store looking for bananas. We see an employee stocking a shelf and decide to ask for their help. Once we have signaled for their attention, they acknowledge us, stop their task, and walk over to help us find the item. After they have found the bananas and let us know, they return to their previous task. In this example we are an IO device, sending an interrupt (our search for bananas) to the CPU (the employee).
+
+Polling provides similar functionality to interrupts; however, it is not a hardware mechanism. Polling is a CPU protocol, in which there are regular intervals set up for the CPU to take some time to check on whether any IO device requires its attention. Just as an interrupt handler takes care of interrupt requests, the CPU is responsible for handling IO requests in polling.
+
+Instructions
+The animation here provides an analogy to better understand how interrupts are processed by a CPU. Try to identify the interrupt, and make note of how it is processed through the customer’s task of buying bananas.
+
+
+
+
+Memory-mapped IO vs Direct-Memory Access
+Memory-mapped IO refers to a system that is designed to allow both an IO device that is connected to a computer, and the memory of the computer to share address space to the interface.
+
+There are a few advantages to using memory-mapped IO. It allows for similar sets of instructions to be used over multiple hardware components. IO devices are not treated differently from other kinds of memory devices. A separate set of instructions is not required for IO devices to communicate with a computer.
+
+Direct memory access (DMA) refers to a method in which IO devices have direct access to the main memory of a computer without too much involvement of the CPU. For DMA, a CPU will trigger the execution of data to/from an IO device to a computer, but then will continue to complete other tasks while the data transfer executes. In order to implement the DMA method, computers use hardware devices known as Direct-memory access controllers.
+
+One advantage of using DMAs is that it removes overhead for the CPU so that the CPU may process other tasks. However, using DMA may result in cache coherency discrepancies. This means that if a computer has a cache, and a DMA only has access to the main memory, it may update the main memory and so the cache, which has not been updated, will not match.
+
+Instructions
+Take a look at the animation on the right - it shows how data and interrupts travel from an IO device to the DMA, and then simultaneously to the CPU and main memory.

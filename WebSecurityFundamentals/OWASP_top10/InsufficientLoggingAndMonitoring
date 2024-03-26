@@ -1,0 +1,22 @@
+2017 OWASP TOP 10
+Insufficient Logging and Monitoring
+In security, knowledge is power. Knowing what’s going on within a system is important for detecting, preventing, and responding to attacks. Early detection can mean the difference between an incident that causes an internal memo, and an incident that makes headlines for weeks.
+
+Insufficient Logging and Monitoring refers to an overall lack of tools that monitor, record, and report events within a system. Events include logins and login attempts, webpage requests, and more. Having these logs allows monitoring software to scan for suspicious behavior, such as 1000 login attempts in 5 seconds or connections to or from known malicious IP addresses.
+
+When logging and monitoring is insufficient, it’s more difficult to investigate attacks. Insufficient logging and monitoring also gives attackers more time to do damage before they are detected, meaning that attacks can be more severe as well.
+
+Logs should be easy to read, and they should record sufficient information and context about auditable events. Monitoring tools should be properly configured and able to respond in real-time to suspicious behavior.
+
+Instructions
+In the workspace, you can see two example log files:
+
+bad_log.txt
+good_log.txt.
+Let’s look at bad_log.txt and try to figure out what sequence of events it represents.
+We see multiple failed logins as well as two successful logins, but we can’t determine, for example, whether or not this indicates malicious activity or forgetful users. What happened here?
+
+Now, let’s look at good_log.txt.
+This log is much more informative: Entries have a date and timestamp, tags to make searching the log easy, and relevant information for each entry. We can see that there were 9 failed login attempts for the administrator account followed by a successful login. This all happened within about 4 seconds from the same IP address. This strongly indicates a successful automated attack. We can also see an unrelated login event for a different user from a different IP.
+
+With insufficient logging and monitoring, we would have been unable to determine that an attacker had gained access to an administrative account. With proper logging and monitoring, we can detect and respond to the attack much faster, and we have information that can be passed on to the authorities about the attack.

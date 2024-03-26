@@ -1,0 +1,11 @@
+Introduction to IO Systems
+Learn about how the operating system interacts with IO hardware and software!
+
+Introduction to IO Systems
+IO systems are a combination of hardware and software tools that help a user interact with a computer successfully. The I in IO stands for input and the O stands for output. The main role of IO systems is to accept input (e.g., from a mouse or keyboard) from users for a computer and provide output (e.g., through a screen or headphones) from a computer to users.
+
+A computer can receive lots of input and provide numerous output while a user is active on a computer. For example, a computer can produce the output of audio while also accepting input from a keyboard. The management of such input and output is handled by the operating system on a computer. The operating system oversees the queue of IO messages and handles them from the moment they are received until they provide output to a user.
+
+IO systems are composed of two main components which we will explore in the next two lessons: IO hardware and IO software. IO hardware refers to the physical devices that a user interacts with. Some examples include a keyboard, a mouse, display screens, speakers, and headphones. IO software is the code that supports IO hardware so that a CPU may understand the input from a user and provide an appropriate output.
+
+By the end of the next two lessons, we will gain a deeper understanding of how hardware and software are necessary components that contribute to how a user interacts with a computer.

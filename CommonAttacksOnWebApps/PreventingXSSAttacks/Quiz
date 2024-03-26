@@ -1,0 +1,68 @@
+Question 1
+Which JavaScript attribute or method is NOT vulnerable to DOM-Based Cross-Site Scripting (XSS) attacks?
+    element.textContent. Any string assigned to this property is always rendered as text.
+
+Question 2
+Complete the following Express application code to use the helmet npm package which improves security by setting various HTTP headers.
+    const express = require("express");
+    const helmet = require("helmet");
+    ...
+    app.use(helmet());
+
+Question 3
+Complete the following Express code which uses the express-session library to reduce the risk of client-side scripts accessing protected cookies.
+    app.use(
+        session({
+            secret: "my-secret",
+            resave: true,
+            saveUninitialized: true,
+            cookie: {
+            httpOnly: true,
+            secure: true
+            }
+        })
+    );
+
+Question 4
+Fill in the blanks to complete this statement about preventing Stored and Reflected XSS attacks.
+    Stored and Reflected Cross-Site Scripting (XSS) attacks can be prevented in Express applications by using `express-validator` to sanitize and escape user input from different types of input fields, such as dropdown fields, forms, and more.
+
+Question 5
+All of the following ways can help prevent Cross-Site Scripting (XSS) vulnerabilities EXCEPT…
+    avoiding all user input. XSS attacks are possible even without direct user input. A Reflected XSS attack can occur by injecting a script into the URL. Besides, it is not always possible to avoid user input as it might be … Show more
+
+Question 6
+Complete the following Express code that uses the npm package, express-validator, to validate whether:
+
+A field named email is an email address.
+The ID in the field named id has a maximum length of 10 characters.
+    const { check } = require("express-validator");
+    app.post("/search", [
+            check('email').isEmail(),
+            check('id').isLength({ max: 10 })
+        ], (req, res) => {
+            …
+    });
+
+Question 7
+Attackers can use cookies to steal users’ usernames and passwords.
+    True, attackers can use cookies to steal users’ usernames and passwords. XSS attacks can be used to retrieve users’ cookies which can contain important information.
+
+Question 8
+Match the types of Cross-Site Scripting (XSS) with their definitions.
+
+    Stored XSS: when a web server saves an attacker’s input into its database.
+
+    Reflected XSS: when a user’s input is immediately returned back to the user.
+
+    DOM-Based XSS: when user input is interpreted by the DOM, an attacker is able to inject arbitrary code.
+
+Question 9
+Replacing JavaScript like element.textContent can prevent DOM-Based Cross-Site Scripting (XSS) attacks.
+    False, replacing JavaScript like element.textContent will NOT prevent DOM-Based XSS attacks. element.textContent renders values as text. JavaScript like element.innerHTML and document.write(), on the other hand, can be dangerous.
+
+Question 10
+Stored and Reflected Cross-Site Scripting (XSS) Attacks can be prevented by using a specific npm package to set important security headers like Content-Security-Policy and X-XSS-Protection.
+
+Which of the following packages serves this purpose?
+    helmet. helmet is a collection of 15 Node modules that interface with Express. Each module provides configuration options for securing different HTTP headers.

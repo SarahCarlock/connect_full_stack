@@ -1,0 +1,68 @@
+Introduction to Operating Systems Problem Set
+Apply your knowledge of computers with free-response questions about input, processing, memory, and output.
+
+Answer the following questions using what you learned about the basics of computers. These questions are meant to challenge your understanding of the concepts covered in the How Computers Work lesson and Important Hardware article. Do your best to answer each question and refer back to the content if you need to refresh your knowledge of any aspect of computing.
+
+Free response
+Within computing, what are input and output? What is the purpose of each?
+
+Your response
+
+Input refers to any interaction between the user and the computer: mouse clicks, typed keys, etc. Output refers to any reaction returned to us: monitor, speakers, etc. The two help the user to interact with the computers functions and abilities.
+
+Our answer
+Input is how people physically interact with computers. By interacting with physical sensors, binary data is created and sent to the CPU for the event to be processed. Output is data processed and sent out by the CPU to interact physically with the user through devices such as monitors, speakers, and printers.
+
+Free response
+What is the purpose of the CPU within a computer?
+
+Your response
+
+The CPU within the computer is the primary way that a computer functions and produces any results.
+
+Our answer
+The CPU controls all the different components between hardware and software by processing all of the information that flows throughout the computer.
+
+Free response
+Both primary and secondary memory attempt to store data for later use by the CPU. Describe one benefit and one drawback for both primary memory and secondary memory.
+
+Your response
+
+Primary: benefit makes it easier and faster to utilize programs because the memory is deleted once it’s turned off. Drawback is that it doesn’t store memory permanently. Secondary: benefit is that once it’s there, it’s stored for later uses despite things being turned off. Drawback is that is has a limited amount of storage.
+
+Our answer
+Primary memory is much faster and is used only for temporary, short-term storage, so the data is lost when it is no longer needed or the computer loses power. Secondary memory is slower, but can be used to permanently store data such as photos or text documents.
+
+Free response
+CPUs generally consist of three main components: a control unit (CU), an arithmetic and logic unit (ALU), and a collection of registers. Compare the main functions of each of these three components.
+
+Your response
+
+Control Unit- controls the main input and output for the CPU. Arithmetic & Logic Unit- handles calculations, comparisons, and conditionals. Register Collections- high speed, limited memory for processing immediate information.
+
+Our answer
+The control unit (CU) is the overseer of the CPU, responsible for controlling and monitoring the input and output of data from the computer’s hardware. Its primary job is making sure that data is sent to the right component at the right time, and arrives with integrity.
+
+The arithmetic and logic unit (ALU) is where all of the processing of the computer takes place. It is the fundamental part of the CPU that actually does the arithmetic calculations of the data as well as the handling of logical comparisons and conditionals.
+
+The register, or immediate access store, is a limited space, high-speed memory mounted on the CPU for quick processing. It provides the CPU with a place to store values that are crucial for the calculations the ALU is currently processing.
+
+Free response
+What is the kernel within an operating system?
+
+Your response
+
+The kernal is lowest-level of the os. The absolute core of the os that is in the hardware.
+
+Our answer
+The kernel manages all of the interactions between the hardware and software components of a computer, such as interfacing with memory and hard drives.
+
+Free response
+What are the main responsibilities of the operating system?
+
+Your response
+
+The operating system handles any interactions the user will have while running programs and software.
+
+Our answer
+The operating system is responsible for tasks such as process management, memory management, file system management, IO management, networking, security, and providing a user interface.

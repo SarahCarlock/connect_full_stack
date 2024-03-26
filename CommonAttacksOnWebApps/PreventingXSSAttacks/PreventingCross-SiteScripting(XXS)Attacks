@@ -1,0 +1,22 @@
+What is a XSS Attack
+A Cross-Site Scripting (XSS) attack is a type of attack where code is injected into a legitimate and trusted website.
+
+There are three main types of XSS Attacks:
+
+Stored XSS Attacks:
+
+In a Stored XSS Attack, the attacker locates a vulnerability in a web application and injects a malicious script into its server. That code would be then stored in the app’s database, and when a user makes a request to view that type of content, the code stored is then executed.
+
+In this case, we can use specific HTTP Headers and data sanitization to stop any malicious code from reaching the server.
+
+Reflected XSS Attacks:
+
+In a Reflected XSS Attack, an application receives potentially malicious data in an HTTP request and includes that data within the immediate response in an unsafe way.
+
+Similar to Stored XSS Attacks, we can also use HTTP Headers and sanitization in order to protect any malicious code from being injected.
+
+DOM-Based XSS Attacks:
+
+In a DOM-Based XSS Attack, the attack is executed entirely in the browser by modifying the DOM (Document Object Model).
+
+In order to protect one’s code from a DOM-Based XSS attack, one must be careful of the JavaScript that is used on the front end.

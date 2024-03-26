@@ -1,0 +1,26 @@
+What is the primary advantage of client-side rendering over server-side rendering?
+    Content renders quickly after the initial page load. Since multiple round-trip calls to the server are not necessary with client-side rendering, content renders quickly.
+
+Is the following statement true or false? An advantage of server-side rendering is that visual elements of a website load quickly in the browser.
+    True. Because content generated on the server is ready to render, the view loads quickly in the browser.
+
+Which of the following is NOT data that might be included in a server’s response body?
+    Response headers. Response headers provide context on the response and are not included in the body.
+
+Server-side rendering generates HTML documents on the server and sends them to the browser. In the browser, JavaScript is loaded to add interactivity to the page.
+
+Is the following statement true or false? Server-side rendering is a great option for web apps with rich interactions.
+    False. Server-side rendering is ideal for static websites. Since static views load quickly, and interactive elements can be slower to load, server-side rendering is ideal for static, content-rich sites.
+
+What is rendering in web development?
+    The process of translating code into a visual and interactive website.
+
+Which of the following statements describes client-side rendering?
+    Content is dynamically generated in the browser.
+
+The shortcomings of client-side rendering are poor SEO performance, and the possibility of poor user experience depending on the user’s device or network connection.
+
+Which of the following is NOT a method for rendering web apps?
+    Integrated rendering
+
+In hybrid rendering, the core content is typically delivered via server-side rendering. As the user interacts with the page, interactive content is dynamically generated via client-side rendering.

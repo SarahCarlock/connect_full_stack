@@ -1,0 +1,61 @@
+The operating system (OS) is system software that manages the basic functionalities of a computer.
+Every computer has at least one operating system. The operating system starts running as soon as a computer is turned on.
+Some of the tasks that an OS is responsible for are process management, memory management, file system management, and IO management.
+
+
+Basics of Operating Systems
+Learn about what an operating system is and what they are responsible for.
+
+The four main functions of a computer are input, processing, memory, and output; but where do operating systems fit into this? In this article, we’ll go over the various responsibilities of an operating system at a high level.
+
+Introduction to Operating Systems
+Take a moment to recall the process of using a computer. It may look something like this: We press a button and a humming noise signifies that our computer has powered on. After a moment, our computer monitor displays a desktop background and what happens next is up to us! Here are a few examples:
+
+Use our mouse to open up our favorite music application and turn up our speakers to enjoy our favorite song.
+Start up a word processing software to write something for work and then save it to our computer in a folder we use specifically for our job.
+Open up an internet browser to write an email while playing our favorite online multiplayer game.
+A person is typing at their computer.
+The possibilities are truly endless. The process of interacting with our computers to do these types of activities often seems easy from our perspective. The truth is, these tasks are quite complicated from the perspective of our computers. Let’s revisit this task:
+
+Use our mouse to open up our favorite music application and turn up our speakers to enjoy our favorite song. 
+
+For our computer to accomplish this task, it needs to handle the input of mouse movement and mouse clicks, fetch the data necessary to run the software responsible for the music application, run that software, retrieve the data necessary to play a specific song, communicate with the speaker to output this song, handle the input of the speaker dial being turned, and communicate with the speaker to output the music at a louder volume.
+
+That’s a lot of work being done in just a few seconds! Lucky for us that, as users, we don’t have to think about any of this. The responsibility of handling tasks like this falls on the operating system.
+
+What is an operating system?
+An Operating System, or OS, is system software that’s responsible for handling the basic functionalities of a computer. Some examples of popular OSs are:
+
+Windows
+Linux
+Mac
+Android
+iOS
+Every computer contains at least one operating system which starts working the moment a computer is turned on. The OS has control over both the software and hardware resources of a computer. At the core of an operating system is the kernel which manages all the interactions between the hardware and software components of a computer.
+
+Functions of an OS
+Take a look at some of the vital functions of an OS:
+
+Process Management
+Memory Management
+File Management
+IO Management
+Multitasking
+Networking
+Security
+Providing a user interface
+We’ll focus on the following: process management, memory management, file management, and IO management.
+
+Process Management
+Our computers run a lot of software. Word processing documents, internet browser, a spreadsheet document, video games - all of these are examples of software. But how does the software know what to do? Being on Codecademy, we might already be familiar with this answer - computer programs! Computer programs contain specific instructions that dictate how a program should work when they’re run.
+
+When we run a program, the instance of that execution is represented by a process. Operating systems handle the responsibility of managing active processes.
+
+Memory Management
+We utilize a significant amount of memory in order to store data in our computers; however, not all data is treated the same! Some data, like pictures, need to be stored permanently. Other data, like the information we need to run a process, only needs to be stored temporarily while the application is in use. This temporary memory is known as primary, or main, memory. While hardware like hard disks are used to store permanent data, the operating system is responsible for the management of primary memory stored in RAM.
+
+File System Management
+If we store source code, such as a C program, in a folder on our computer, we are utilizing our computer’s file system. The operating system manages information about individual files as well as the directories they belong in. The OS is also responsible for maintaining file systems by being able to perform tasks such as creating, deleting, renaming, and copying files and/or directories.
+
+IO Management
+Keyboards and speakers and mice, oh my! IO stands for Input/Output and represents the devices used for interaction. A mouse is considered an input device, because we use them to send data to our computer. A monitor is regarded as an output device since it is used to communicate data (like an image) to us, the user. The operating system plays a large role in managing IO by ensuring communication between IO hardware and IO software.

@@ -1,0 +1,40 @@
+Question 1
+Match the following metrics to the description of their utility.
+
+    Number of Incoming Requests: Useful for measuring the amount of traffic and thus how much infrastructure to allocate. 
+
+    Hardware Usage: Useful for understanding and making decisions about physical server utilization. 
+
+    Error Responses: Useful for measuring the number of failed requests, as well as whether these failures are happening in the client or server side.
+
+Question 2
+Match the following system threats to the examples of them.
+
+    Internal failures: A server hard drive breaking would be an example of this type of threat 
+
+    Attacks: DDOS and SQL injection are examples of this system threat. 
+
+    External failures: A 3rd party dropping support for their API is an example of this system threat. 
+
+Question 3
+Fill in the blanks below.
+
+    Resiliency can be measured by determining how quickly a critical failing service recovers, and the degree to which critical services are available during a failure.
+
+Question 4
+Fill in the blanks below.
+
+    The use of metrics and logs to watch and understand a system is monitoring, while the ability to use a system's metrics to identify and resolve issues is observability. A system’s resiliency is its ability to recover when failures occur.
+
+Question 5
+Match the following resiliency methods to their descriptions.
+
+    Input validation: The act of analyzing incoming requests for correctness. 
+
+    Load balancing: A mechanism for evenly distributing requests across multiple instances of an application. 
+
+    Caching: The act of storing frequently or recently accessed data in an easily accessible location in order to avoid unnecessary work by a server. 
+
+Question 6
+Which of the following metrics is a reflection of observability?
+    Actionable alerts. The frequency of actionable alerts is a good indicator for how easily a system’s alerts can be acted upon.

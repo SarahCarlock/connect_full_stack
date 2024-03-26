@@ -1,0 +1,14 @@
+2017 OWASP TOP 10
+Broken Authentication
+The owners of the website made an effort to secure it, but security is only as strong as its weakest link. In this case, the weakest link was a “temporary” admin account that was created for use only while the website was being built and has since been forgotten… By everyone except the hacker who had just logged in using admin as the username and password.
+
+Broken Authentication is a broad term for vulnerabilities that allow attackers to impersonate other users. Vulnerabilities like insecure default credentials, lack of rate limiting for login attempts, and session hijacking all fall into this category. In the worst case, a malicious hacker would be able to gain access to an administrative account, and all the authorization that accompanies it.
+
+There is no single cure for broken authentication; web developers and security teams need to be diligent in making sure that they follow the best practices for the technologies they’re using.
+
+Instructions
+In the workspace is a login form. Unfortunately, this website suffers from Broken Authentication and allows insecure credentials.
+
+Try logging into the administrator account using the same credentials the hacker in the story did!
+
+Hint: Try the username admin and the password admin.

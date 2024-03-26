@@ -1,0 +1,222 @@
+Introduction to Filesystems
+Whether it is playing music, looking at photos, or watching a movie, computers are responsible for holding a lot of data. Having this data be stored safely in an efficient way is critical for the operation of any computer and the filesystem is the component within the operating system that handles this.
+
+The filesystem is the data structure used by the operating system to store and retrieve data. This is a software abstraction that allows developers to manipulate data without having to be concerned with the minutiae of how each storage device works.
+
+This data is organized into files that are units of storage used to describe a self-contained piece of data. Each file has a format depending on what that file contains. This is indicated by the file’s extension that follows the file’s name.
+
+Some common extensions and their file types:
+
+.txt for text files
+.doc for Microsoft Word files
+.jpg for image files encoded using the JPEG compression algorithm
+These files are in turn organized into directories. A directory is a data structure that contains references to files and other directories. They are typically organized in a hierarchical tree structure called a directory tree, as shown in the image on the right.
+
+In this lesson, we’ll learn about the metadata and permissions that organize files, the layers of abstraction that make up a filesystem, and common operations for files and directories.
+
+
+
+
+File Metadata, Permissions, and Attributes
+Not only is it expected that files will hold important data, but it is also assumed that a certain amount of metadata is kept to manage these files. The file control block holds all of this metadata for the file, including file permissions, owners, sizes, and create, modified, and access times.
+
+Alongside this bookkeeping metadata, files can also have attributes that indicate special behavior. While this differs on the operating system, common attributes include:
+
+Hidden: Cannot be viewed by default in file managers.
+Immutable: Cannot be modified or deleted.
+Compressed: The file is in a compressed form to save space.
+
+
+
+
+File Permissions Overview
+Within the file permissions are controls for the three main actions that can be performed on a file: reading, writing, and executing. These permissions differ by user as well as collections of users called groups.
+
+In Unix operating systems, the permissions for a file are represented using a line of 10 characters. The first character can either be - for a file or d for a directory. The other 9 characters are separated into three equal parts called triads.
+
+The first triad containing the first three characters contains the permissions for the owner, the second triad contains the permissions for the group, and the third triad contains the permissions for any other user outside of this.
+
+Each of these three characters within a triad are flags indicating a permission. r means that the file is readable, w means that the file is writable, and x means that the file is executable.
+
+Instructions
+To the right is a directory from a Linux operating system showing the permissions for a variety of files:
+
+For apple, -rw------- means that the file is readable and writable for only the owner.
+For banana, -rw-rw-rw- means that the file is readable and writable for all users on the system.
+For cranberry, -rwxrwxrwx means that the file is readable, writable, and executable for all users on the system.
+For pear, -rw-r--r-- means that the file is readable and writable for the owners, but only readable for everybody else.
+For raspberry, -r--r--r-- means that the file is read only.
+
+
+
+
+Hardware Representation of Data
+As data is the cornerstone of how a computer operates, discussing its physical representation is crucial to best understanding it. What does it look like in the real world when a file is saved onto a hard drive?
+
+For this discussion we will focus mainly on the spinning metal hard disc drive, as most of the design choices for filesystems were based on their inclusion and they are still the most prevalent form of data storage, especially in servers.
+
+Within a hard disk drive is a spinning platter with a thin magnetic coating. A pointy head that looks like a thin fountain pen moves over this platter to etch data into the platter by adjusting the direction of the magnetic field at an incredibly precise location.
+
+The smallest chunk of this physical storage is called a sector. It is the smallest unit of storage for the physical drive and its size is determined by a balance between excessive metadata and wasting space.
+
+Smaller sectors require more information to index the entire drive, like a librarian trying to organize millions of small pamphlets. This ruins performance for finding files as well as creates substantial overhead for documenting the location and content of each sector.
+
+However, larger sector sizes also have drawbacks. For example, if saving a file that has a size of 512 bytes and the sector size is 4096 bytes, the entire sector is written and used, effectively wasting 3584 bytes of space.
+
+This is abstracted further in the software filesystem, where blocks are used to represent groupings of sectors. This is used as an abstraction so that the operating system and all of the applications that reside on it can have a common block size to target instead of needing to accommodate whatever arbitrary sector size is chosen by the hardware manufacturer.
+
+
+
+
+The Layers of a Filesystem
+Building upon this system of sectors and blocks, the rest of the filesystem is also implemented as a collection of abstract layers.
+
+For example, user applications such as text editors make up the highest layer. At this level a developer can easily and abstractly request to write to a file. However, this simple task becomes more intricate as it bubbles down to the lowest device layer. At this level the on-board computers of the storage device need to activate certain motors with a precise amount of force to alter the magnetic state of a sector of the drive.
+
+The entirety of the most common layers are:
+
+Application Programs - The day to day programs that are run by the user, like web browsers and text editors.
+
+Logical File System - The system that manages the file control blocks containing the metadata of files such as file permissions, owners, sizes, and access times. Simplifies the access to files for applications regardless of how the underlying filesystem or hardware organizes them.
+
+File-Organization Module - The component responsible for organizing the software blocks of the filesystem. Simplifies hardware differences between storage devices for the logical file system.
+
+Basic File System - Communication layer between software block layout and hardware sector layout. Schedules IO requests and manages resource blocks for file-organization module.
+
+IO Control - The low-level software drivers that can communicate with the storage device’s controller. Understands how to manipulate the physical device to read and write data.
+
+Devices - The mechanisms of the physical storage devices. For example, the motors and controls that do the physical act of storing data within the medium, be it changing the magnetic state of spinning disks or altering the placement of electrons in flash storage.
+
+
+
+
+File Operations
+A file can be manipulated in a variety of ways. In fact, Unix built upon this to create an operating system where everything is treated as a file. Therefore learning some simple command line file operations is crucial:
+
+New empty files are commonly created using the touch command.
+The contents of a directory can be listed using the ls command. (Be sure to type a lowercase “L” as in “list” and not the number 1.)
+A string of text can be output to the terminal using the echo command. This is useful in coordination with the > operator that redirects the text output to a file.
+A file can be output and read using the cat command.
+A file can be deleted using the rm command.
+
+
+
+
+File Operations
+A file can be manipulated in a variety of ways. In fact, Unix built upon this to create an operating system where everything is treated as a file. Therefore learning some simple command line file operations is crucial:
+
+New empty files are commonly created using the touch command.
+The contents of a directory can be listed using the ls command. (Be sure to type a lowercase “L” as in “list” and not the number 1.)
+A string of text can be output to the terminal using the echo command. This is useful in coordination with the > operator that redirects the text output to a file.
+A file can be output and read using the cat command.
+A file can be deleted using the rm command.
+Instructions
+Checkpoint 1 Passed
+1.
+Using the command line, create a new file called lunch using the command touch lunch.
+
+Optionally, you can verify that this file has been created by using the command ls to list all the files in the current directory.
+
+
+Hint
+Type touch lunch into the command line and press enter. After, type ls into the command line and press enter.
+
+Remember to type the ls command using a lowercase “L” as in “list” and not the number 1.
+
+Checkpoint 2 Passed
+2.
+Write a list of foods such as burger, salad, and sandwich to the lunch file using the following command:
+
+echo "burger, salad, and sandwich" > lunch
+
+Optionally, you can verify this by reading the file using the command cat lunch.
+
+
+Hint
+Type:
+
+echo "burger, salad, and sandwich" > lunch
+
+into the command line and press enter. After, type cat lunch into the command line and press enter.
+
+Checkpoint 3 Passed
+3.
+Delete the lunch file using the command rm lunch.
+
+
+Hint
+Type rm lunch into the command line and press enter.
+
+
+
+
+Directory Operations
+Directories give a hierarchy to files and therefore learning commands for their manipulation is important as well:
+
+New empty directories can be created using the mkdir command. This can also create directories within existing directories, called sub-directories.
+Again, the contents of a directory can be listed using the ls command.
+A directory can be deleted using the rm command with the -r recursive flag to also delete any files it may contain.
+Instructions
+Checkpoint 1 Passed
+1.
+Using the command line, create a new directory called dinner using the command mkdir dinner.
+
+Verify that this new directory has been created using the command ls to list all the files in the current directory.
+
+
+Hint
+Type mkdir dinner into the command line and press enter. After, type ls into the command line and press enter.
+
+Checkpoint 2 Passed
+2.
+Create 2 more directories within the dinner folder using the command:
+
+mkdir dinner/entree dinner/dessert
+
+Verify the beginnings of this hierarchical tree structure using the ls -R command.
+
+
+Hint
+Type mkdir dinner/entree dinner/dessert into the command line and press enter. After, type ls -R into the command line and press enter.
+
+Checkpoint 3 Passed
+3.
+Create a variety of files within these new folders using the command:
+
+touch dinner/entree/turkey dinner/entree/fish dinner/dessert/cake dinner/dessert/pudding
+
+Verify the full hierarchical tree structure using the ls -R command.
+
+
+Hint
+Type:
+
+touch dinner/entree/turkey dinner/entree/fish dinner/dessert/cake dinner/dessert/pudding
+
+into the command line and press enter. After, type ls -R into the command line and press enter.
+
+Checkpoint 4 Passed
+4.
+Delete the dinner directory using the command rm -r dinner.
+
+
+Hint
+Type rm -r dinner into the command line and press enter.
+
+
+
+
+Filesystem Review
+Congratulations on completing the lesson and learning more about filesystems! Let’s go over what we covered:
+
+Filesystems are the data structure used by operating systems to store and retrieve data. Therefore they are crucial for the daily operations of a computer and learning about them.
+
+The building blocks of the filesystem are the files themselves. A file is a unit of storage used to describe a self-contained piece of data.
+
+Files can have a variety of formats depending on the type of data that they store, as indicated by the file extension following their name.
+
+Files have permissions that determine which users and groups can read, write, and execute that file.
+
+Directories are the data structure that contains references to files as well as other directories. Both files and directories can be created, opened, written, listed, and deleted using a wide variety of commands.
+
+The file system itself is organized in a collection of abstract layers. These layers include the applications, logical file system, file-organization module, basic file system, IO control, and the storage devices themselves.

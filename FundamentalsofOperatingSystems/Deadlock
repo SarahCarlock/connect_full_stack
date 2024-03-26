@@ -1,0 +1,40 @@
+Deadlocks
+Learn about deadlocks and how to prevent them.
+
+What is Deadlock?
+Locks provide mutual exclusion on the critical sections of our code; they guarantee that only one thread at a time may enter areas of our code that contain shared resources. But while mutual exclusion is a necessary condition for our programs to be synchronized, it is not a sufficient one. There are two others, progress and bounded waiting.
+
+The bounded waiting condition states that each thread that asks for permission to enter a critical section will, eventually, receive it. In other words, no thread should ever get stuck waiting indefinitely. This might seem simple to implement. Can’t we very easily make sure that threads give up their locks? A difficult problem, though, arises when multiple locks exist in our program. A situation known as a deadlock can occur, and it has the potential to cripple our multi-threaded programs. In this article, we will discuss what deadlocks are, what causes them, and how we can avoid them.
+
+Causes of Deadlocks
+The following diagram shows very simply how one can occur. Let us briefly walk through it.
+
+thread_1	thread_2
+lock(foo_mtx)	lock(bar_mtx)
+lock(bar_mtx)	lock(foo_mtx)
+Do something	Do something
+unlock(foo_mtx)	unlock(bar_mtx)
+unlock(bar_mtx)	unlock(foo_mtx)
+We create two threads, thread_1 and thread_2. Each thread attempts to lock both mutexes foo_mtx and bar_mtx, do some task (Do Something), and then unlock the mutexes. Both threads begin by locking one of the mutexes: thread_1 locks foo_mtx and thread_2 locks bar_mtx. Having each received one lock, both threads now try to lock the second mutex. But this will never happen since neither thread will give up its first lock until it gets its second! Since thread_1 and thread_2 are both waiting for locks they will never receive, they will both spin forever. They are deadlocked.
+
+Prevention and Recovery
+Of course, the best way to avoid deadlocks is to implement our programs in a way such that deadlocks, inherently, cannot happen. In this example, that might mean reordering the locking of the mutexes so that both thread_1 and thread_2 request the mutexes in the same order.
+
+Sometimes, though, this may not be possible or practical. As our programs get larger and larger, it will become more difficult for us as the programmer to trace our threads’ paths of execution. It will likewise become more difficult as the number of potentially-deadlocking mutexes increases. So, we need to have a way to recover assuming that we do, at some point, run into a deadlock.
+
+Our first recovery method is called termination. If two threads are deadlocked, one possible way to recover from that deadlock is to terminate one of the threads and release its locks. One of the drawbacks of this is that we lose any work the thread may have completed up to the point when we terminated it. The thread may also have been executing an important task that will now either not be completed or delayed.
+
+Using the example above, that might mean terminating thread_1 so that it gives up its lock on foo_mtx. This would then allow thread_2 to receive it and finish executing. It is then up to the OS or the process itself to decide whether to respawn the terminated thread so that it may complete its task.
+
+The second main way to recover from a deadlock is to, instead of terminating a thread and releasing all of its locks, simply release the lock on the shared resource which is causing the deadlock. However, here we run into a synchronization problem since, by releasing the lock early, we can no longer guarantee mutual exclusion.
+
+Using the above example, thread_1 will release its lock on foo_mtx, which allows thread_2 to complete its task and then release its locks. This, in turn, allows thread_1 to get a lock on bar_mtx and execute its task.
+
+The benefit here is that both threads execute their tasks without the inefficiency of having to destroy and respawn one of them; however, since thread_1 did not have a lock on foo_mtx at the time it completed its task, we have no guarantee of mutual exclusion. Therefore, we are now susceptible to race conditions.
+
+Wrap-Up
+Congratulations on finishing this article on deadlocks! Let us review what we learned.
+
+Deadlocks arise because two threads need a lock that the other thread has and neither is willing to give theirs up. The way in which locks are implemented guarantees that this risk will always be possible – if a thread tries to lock a mutex that is unavailable, it will wait indefinitely until it gets the lock before executing. By waiting indefinitely, none of the thread’s other tasks will execute – including releasing any other locks it might possess. As a result, two threads can easily get stuck trying to get each other’s locks.
+
+While deadlocks are highly undesirable, they are also not the end of the world. Though imperfect, we have several tools that can help us recover from deadlocks in a way that will not wreck our program.

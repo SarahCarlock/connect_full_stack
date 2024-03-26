@@ -1,0 +1,142 @@
+PREVENTING CROSS-SITE SCRIPTING (XSS) ATTACKS
+DOM-Based Precautions
+We know that, in DOM-Based Attacks, the malicious code is client-side. To prevent this attack developers must be very careful with the type of code used in the browser.
+
+To be more specific, these types of attacks happen when data from a user-controlled source (like user name or redirect URL taken from the URL fragment) reaches a sink, which is a function like eval() or a property setter like .innerHTML, that can execute arbitrary JavaScript code.
+
+There are several methods and attributes which can be used to directly render HTML content within JavaScript. If these methods are provided with malicious input, then an XSS vulnerability could result. For example:
+
+// Attribute:
+element.innerHTML = "<HTML> Tags and markup";
+// Method:
+ document.write("<HTML> Tags and markup");
+
+Instead, one can replace these methods with an attribute like textContent.
+
+// Will add as an actual HTML element.
+element.innerHTML = "<maliciousHTML>";
+// Will render as text on the webpage.
+element.textContent = "<displaysAsText>";
+
+Ideally, one could take a step further and avoid rendering user input, especially if it affects DOM elements such as the document.url, document.location, or document.referrer.
+
+Lastly, one should validate and sanitize all user input in order to prevent any data manipulation.
+
+Instructions
+Checkpoint 1 Passed
+1.
+In our index.html file, we currently have a line of code within our <script> tags to display the current Uniform Resource Identifier (URI):
+
+document.write("<b>Current URL</b> : " + document.baseURI);
+
+Note: A URL is a type of URI. The term URL is more specific and specifies details about which protocol to use while the term URI is more general.
+
+Let’s separate the HTML and JavaScript code. Display the “Current URL” within the <section> tags instead.
+
+The text Current URL: should be enclosed in <b> tags.
+Follow that with a <span> tag that has the id "contentholder". Make sure to leave the content in the <span> tags empty.
+
+Hint
+Your HTML tag should look as follows:
+
+<b>Current URL:</b><span id="contentholder"></span>
+
+Checkpoint 2 Passed
+2.
+Now, set the <span>‘s content equal to document.baseURI.
+
+Use the getElementById method to target the <span> with the id "contentholder".
+Once targeted, append the textContent method to it.
+Next, make this element’s text content equal to document.baseURI.
+Once completed, make sure to comment out the original document.write method.
+
+Hint
+Your final line of code will be:
+
+document.getElementById("contentholder").textContent = document.baseURI;
+
+This specific command refers to the “URI” NOT the “URL”, so be careful when writing this code. Remember, the term URL is more specific and specifies details about which protocol to use while the term URI is more general.
+
+
+
+EXAMPLE index.html
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="css/tacit-css.min.css"/>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>The Vulnerable Movie Center</title>
+    <script>
+      function search() {
+        const searchResult = document.getElementById("search-result");
+        const searchTerm = document.getElementById("search-term");
+        const keyword = document.getElementById("keyword");
+
+        const bookData = document.getElementById("book-data");
+        const comments = document.getElementById("comments");
+
+        bookData.style.visibility = "hidden";
+        comments.style.visibility = "hidden";
+
+        searchResult.style.display = "block";
+
+        searchTerm.innerHTML = keyword.value;
+
+        //fetching results related to the keyword value from the server
+
+        return false;
+
+      }
+
+        // Vulnerable code to write Document URI
+        //document.write(<b>Current URL:</b>
+        <span id="contentholder"> document.getElementById("contentholder").textContent = document.baseURI</span> + document.baseURI);
+              // Use an alternative document method below:
+              
+    </script>
+  </head>
+  <body>
+    <section>
+      <!-- Add new "Current URL" content below -->
+      <h1 style="margin-top:5px">The Vulnerable Book Catalog</h1>
+      <hr class="thin">
+      <form id="search-form" onsubmit="return search()">
+        <input id="keyword" type="text" class="thin" placeholder="Search a book"><button type="submit" class="thin">Go</button></form>
+      <hr>
+    </section>
+
+    <section id="search-result">
+      You searched for <span id="search-term"></span>
+      <p>Waiting for server's response...</p>
+    </section>
+
+    <section id="book-data">
+      <img id="cover" src="images/LOTR.jpeg"/>
+      <div id="book-details">
+        <b>Title:</b> Lord Of The Rings<br/>
+        <b>Year:</b> 1954<br/>
+        <b>Author by:</b> J.R.R Tolkein<br/>
+        <br/>
+        <b>Plot:</b>
+        <p>Sauron, the Dark Lord, has awakened and threatens to conquer Middle-earth. To stop this ancient evil once and for all, Frodo Baggins must destroy the One Ring in the fires of Mount Doom. </p>
+        <button type="submit">Read</button>
+      </div>
+    </section>
+
+    <section id="comments">
+      <form>
+        <fieldset>
+          <textarea name="newReview" cols="80" rows="5" placeholder="Add your review"></textarea>
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+      <hr>
+      <h2>Comments</h2>
+      <dl>
+        $reviews$
+      </dl>
+    </section>
+  </body>
+</html>

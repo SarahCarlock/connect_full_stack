@@ -1,0 +1,16 @@
+2017 OWASP TOP 10
+XML External Entities (XXE)
+Computers take things very literally; give them an instruction and they’ll follow it exactly, even when it’s not actually what you wanted. Servers are computers that have been instructed to respond to requests for data, and if you’re not careful, they’ll respond to requests like “details of every account on the OS the server is running” or “what happens if you run this piece of code?”.
+
+Similar to Injection, XML External Entities (XXE) is a type of vulnerability that allows maliciously crafted data to produce unintended behavior on the backend of a website.
+
+Unlike injection, where the malicious input is usually from an input field, XXE involves an attacker uploading a maliciously crafted XML file. XML is a markup language that supports potentially insecure features, and if a website is using an XML processor with those features enabled, an attacker can use XXE to wreak havoc. In the worst case, the attacker may be able to execute arbitrary code - just about the worst case scenario for security.
+
+While XXE can be mitigated by ensuring XML processors are properly configured and updated, and that input is validated before processing, the simplest solution is to not use XML.
+
+Instructions
+Take a look at the workspace. It includes a snippet from an XML file that attempts to exploit XXE vulnerabilities. Two parts of the file are highlighted.
+
+The first part, which says <!ENTITY xxe SYSTEM "file:///etc/passwd" >]>, defines an entity pointing to the etc password file.
+
+The second part, which specifies &xxe; as the methodName, calls that reference.

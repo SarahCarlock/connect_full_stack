@@ -1,0 +1,61 @@
+Question 1
+Fill in the blanks below.
+    In IaC configuration files, the declarative approach simply describes the desired state of infrastructure, while the imperative approach lists the exact steps needed to achieve a desired state. 
+
+Question 2
+Match the following benefits to the correct infrastructure configuration methodology.
+    Infrastructure as Code: 
+    - More consistent configurations
+    - More cost effective
+
+    Manual infrastructure configuration: 
+    - Decreased reliance on tools
+    - Most flexible
+
+Question 3
+Fill in the blanks.
+    In software development, an environment is the subset of infrastructure resources used to execute a program under specific constraints.
+
+Question 4
+Match the following types of infrastructure to the correct descriptions.
+    In-house infrastructure: This type of infrastructure involves storing and maintaining servers on company premises. 
+
+    Cloud-based infrastructure: This type of infrastructure involves making computing resources available over the internet. 
+
+    Serverless infrastructure: In this type of infrastructure, the provisioning and configuration of servers is invisible to the team developing the application.
+
+Question 5
+Fill in the blanks below.
+    In web development, infrastructure is the set of hardware and software components on which web applications are developed, tested and deployed. Traditionally, it has been managed by a company’s operations team. 
+
+Question 6
+Fill in the blanks below.
+    Acquiring and setting up a server is an example of infrastructure provisioning, while updating application dependencies is an example of infrastructure configuration.
+
+Question 7
+Complete the sentences below.
+    Infrastructure as Code (IAC) seeks to automate provisioning and configuration as much as possible. Configuration files should be checked into version-control, then tested for validity. These configuration files will be the source of truth for our infrastructure state.
+
+Question 8
+Match each environment to its definition.
+    Testing environment: This is an environment where test cases are executed against the application as a whole.
+
+    Production environment: This is the environment on which the live application runs and is exposed to real users. 
+
+    Staging environment: This environment mirrors production as closely as possible for final testing. 
+
+    Development environment: This is a local environment where a developer makes changes to code. 
+
+    Integration environment: This is an environment where features are merged into a unified codebase.
+
+Question 9
+Match the following application architectures to the correct descriptions.
+    N-tier architecture: This type of application is split across several layers which each run on their own server. The layers can grow quite large.  
+
+    Microservices architecture: This type of application distributes small components of business logic into their own services. 
+
+    Monolithic architecture: This type of application lives in a single codebase and is deployed as a single service. 
+
+Question 10
+    What is the key difference between a virtual machine and a container?
+    A virtual machine requires its own operating system while a container shares the operating system of the underlying host. The fact that containers share an underlying operating system is what makes them smaller and faster to create than virtual machines.

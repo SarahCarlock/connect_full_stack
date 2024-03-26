@@ -1,0 +1,7 @@
+2017 OWASP TOP 10
+Sensitive Data Exposure
+When data breaches happen, that’s not the end of the story. The stolen information gets sold and resold on the dark web, often ending up in sets of personal information known as fullz. Fullz contain information someone could use to commit the kinds of fraud that can ruin a victim’s life for years, and most of this information is on sale for $25 or less.
+
+Most websites handle sensitive data of some sort, and Sensitive Data Exposure refers to insufficient protections being put in place for that data. This is a broad category of vulnerabilities that covers things like insecure storage, the transmission of sensitive data, or revealing sensitive data to unauthorized parties. This type of vulnerability can have serious, life-altering consequences for the people whose data is exposed.
+
+As a broad category, there isn’t a single technique for preventing sensitive data exposure. Data privacy laws and regulations often provide a good place to start, but organizations that handle sensitive data have a responsibility to be proactive about securing the sensitive data they handle.

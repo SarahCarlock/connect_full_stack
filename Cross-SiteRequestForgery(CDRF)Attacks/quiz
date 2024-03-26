@@ -1,0 +1,7 @@
+Question 1
+Using a CSRF token provides flawless protection against CSRF attacks.
+    False. Yes, nothing is foolproof! While a CSRF token can prevent many malicious requests, it alone can still fail. If an application is vulnerable to another type of attack such as XSS, a hacker could extract this CSRF token.
+
+Question 2
+Which of the following is NOT true about Cross-Site Request Forgery (CSRF) attacks?
+    The attacks exclusively use scripts to control sessions and change user information. While it is possible to create sophisticated CSRF attacks with scripts, they are not necessary. An attacker can exploit the user’s browser session with a simple web request.

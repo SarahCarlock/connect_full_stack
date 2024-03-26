@@ -1,0 +1,15 @@
+2017 OWASP TOP 10
+Security Misconfiguration
+All the security software in the world won’t protect you if it isn’t properly configured. When the attacker started trying injection attacks, the alarms remained silent. When the attacker opened a backdoor to the server, the firewall didn’t block it. And when the attacker started stealing credit card data, the endpoint security software sent warning after warning, but it all went unseen until the following Monday.
+
+Security Misconfiguration has been a problem since the early days of the internet, and it continues to be a problem today. Whether due to operator error or insecure default settings, insecure configurations can severely hamper the security of an environment.
+
+Examples of Security Misconfiguration include things like:
+
+Forgetting to protect cloud storage
+Leaving unnecessary features enabled on server software
+Disabling automatic updates
+Displaying overly detailed error messages that give details about the way the backend is set up
+It also includes improperly configured security software, such as weak or ineffective rules for Firewalls and Intrusion Detection Systems (IDSs).
+
+Preventing security misconfiguration requires regular review of configurations. It’s not possible to simply “set and forget” software. As the environment continues to grow and change, security and hardening needs to be treated as a continuous, ongoing processes.

@@ -1,0 +1,68 @@
+PREVENTING CROSS-SITE SCRIPTING (XSS) ATTACKS
+Data Validation and Sanitization
+In the Reflected and Stored XSS Attacks, we saw how an attacker can inject malicious code into the server and/or database using a form. This is why it’s important to validate and/or sanitize data before it’s submitted to the server.
+
+When we validate data we ensure that the user is not submitting information that doesn’t fit a certain format. Moreover, we can use sanitization in order to reformat data so no malicious code is sent.
+
+In other words, validation checks if the input meets a set of criteria (such as a string contains no standalone single quotation marks), whereas sanitization modifies the input to ensure that it is valid (such as removing single quotes).
+
+There are many packages that help validate user data, and one common package is express-validator. It’s built off of the validator package, and it is recommended for use in express applications. With express-validator, we can verify if a string matches a certain format by importing certain functions such as check:
+
+const { check } = require("express-validator");
+
+Once the function is imported, it can be used as a middleware within our endpoints, to validate any input that’s submitted within objects attached to req (such as data sent in a form through req.body):
+
+app.post("/login", [
+  check('email').isEmail(),
+], (req, res) => {});
+
+In the example above, the email field is sent through a login form and retrieved from req.body. Notice how we’re using an array since we can pass in multiple check‘s for input data.
+
+If the input data is valid, then the rest of the request will be executed and we know that the data passed in is safe and properly formatted.
+
+Instructions
+Checkpoint 1 Passed
+1.
+We’re in the process of building an endpoint to log in users. In order to validate any submitted data, let’s make use of express-validator.
+
+Begin by importing the check function from express-validator at the top of the file.
+
+
+Hint
+With express-validator, we can verify if a string matches a certain format by importing certain functions such as check:
+
+const { check } = require("express-validator");
+
+Checkpoint 2 Passed
+2.
+For the login credentials, users will require to input an email and a password. Let’s start by validating the email.
+
+Scroll down to the "login" endpoint.
+
+Make use of the check function to validate that the email input is formatted correctly using the isEmail function.
+
+
+Hint
+express-validator can validate input using the following format:
+
+app.post("/login", [
+  check('inputName').validationName(),
+], (req, res) => {});
+
+Checkpoint 3 Passed
+3.
+For the password, we want to make sure that the password input matches a minimum length.
+
+Make use of the isLength function to ensure that the password input is at least 5 characters in length.
+
+For more information on these other methods, refer to the express-validator documentation
+
+
+Hint
+You can pass extra information to express-validator validation methods using the following format:
+
+app.post("/login", [
+  check('inputName').validationName({attrName: valueName}),
+], (req, res) => {});
+
+The express-validator method you need to use for this is isLength(), and it requires you to set the attribute min to the required minimum length.

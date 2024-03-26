@@ -1,0 +1,91 @@
+Question 1
+When is a process blocked?
+    When the process has to wait for a contested, limited, or slow resource, such as accessing a specific file or waiting for a network request. A process is blocked any time it has to wait for a separate resource outside of its control.
+
+Question 2
+A process typically exists in five states: New, Ready, Running, _______, or Finished.
+    Blocked. The lifecycle of a process is its journey between the five possible states: New, Ready, Running, Blocked, or Finished.
+
+Question 3
+What is the difference between kernel and user threads?
+    Kernel threads are constructed through system calls to the kernel while user threads are constructed using local function calls. Kernel threads are threads created in kernel space using kernel code and libraries through a system call. The kernel is fully aware of these threads and can properly manage them. User threads are threads created in user space using local code and function calls. The kernel is not aware of these threads and cannot directly control them.
+
+Question 4
+What is preemption?
+    When a process is temporarily interrupted by an external scheduler to prioritize a more important task. Preemption is the interruption of a process that occurs when the scheduler decides that another process needs to be run instead.
+
+Question 5
+How does an operating system attempt to best take advantage of limited computing resources?
+    Context switching between ready and blocked processes on the CPU core.
+
+Question 6
+What is a thread?
+    A thread represents the sequence of programmed instruction that are actively being executed.
+
+Question 7
+What is the difference between a computer program and a process?
+    A computer program is a collection of instructions stored on the disk while a process is an abstraction used to represent the a program while it is executing. It is a static collection of code while a process is a dynamic data structure containing relevant operating system information for a running program.
+
+Question 8
+What is the parent-child relationship between processes?
+    When a process launches another process, the original process enters a parent-child relationship with the new process. This relationship facilitates the sharing of common data and signals along the hierarchy as well as the arrangement of which process may terminate first. The parent-child relationship describes the hierarchy between processes as they launch one another.
+
+Question 9
+What is the purpose of the process control block?
+     For the operating system to identify and control the process.
+    
+Question 10
+Within memory, the layout of a process has four distinct sections: A text section for the compiled code, a data section for initialized variables, a stack for local variables, and _______.
+    a heap for dynamic memory allocation. The layout of a process contains the compiled code of the program, the initialized variables, the stack of local variables, and the dynamic memory heap.
+
+Question 11
+What is a benefit of multithreading?
+    Multithreading allows a single CPU core to execute multiple threads at once, thereby improving system utilization and responsiveness by more efficiently splitting up tasks.
+
+Question 12
+What is a downside of multithreading?
+Multithreading can create more complex code due to having to manage shared resources and the nondeterminism brought about by synchronizing many concurrent threads.
+    Managing multiple threads requires more advanced coding practices and testing.
+
+Process Scheduling Quiz
+
+Question 1
+What is a common way to calculate the total execution time of a process?
+    Total execution time can be determined through calculating a historical average runtime based on previous executions of the process. While calculating the execution time of a process ahead of time can be difficult, it can be estimated based on previous times the proccess was run.
+
+Question 2
+What is Round Robin scheduling?
+    Round Robin is a scheduling algorithm where a fixed amount of time is chosen and assigned to each process.
+
+Question 3
+How do the Shortest Job First and Shortest Remaining Time scheduling algorithms differ?
+    Shortest Job First is a scheduling algorithm that prioritizes running the process with the shortest execution time first, while Shortest Remaining Time is a preemptive variant that prioritizes based on shortest remaining execution time instead.
+
+Question 4
+What is First Come, First Served scheduling?
+First come, first served is a scheduling algorithm where processes are put into a queue and then executed in the order that they arrive.
+    In First Come, First Served scheduling, the processes that arrive first are the first to be executed.
+
+Question 5
+Within process scheduling, what is the difference between throughput, wait time, and response time?
+    Throughput is the total amount of processes completed per unit of time, while wait time is the amount of time it takes for a process to become ready after being executed, and response time is the amount of time it takes a process to finish after becoming ready.
+
+Question 6
+What is Multiple-level Queue Scheduling?
+    Multiple-level Queue Scheduling is a scheduling algorithm that attempts to categorize processes and then place them in multiple queues or levels with different priorities. In Multiple-level Queue Scheduling, processes are categorized on separate prioritized levels based on criteria that best fits the needs of the operating system.
+
+Question 7
+What is the purpose of a scheduler within operating system design?
+    A scheduler is used to organize a computer’s limited resources based on some predetermined goal, such as maximizing throughput or minimizing response time. A scheduler must make decisions on what metrics to prioritize within the overall operating system.
+
+Question 8
+How does IO bound and CPU bound processes differ?
+    Processes that are CPU bound are more computationally heavy while processes that are IO bound are more IO heavy.Processes can either be computationally heavy and be considered CPU bound or be IO heavy and be IO bound.
+
+Question 9
+What are the differences between the long-term, medium-term, and short-term schedulers?
+    The long-term scheduler admits processes to the ready queue, the medium-term scheduler blocks processes for access to resources, and the short-term scheduler admits processes from the ready queue to the CPU to actually be executed. The long-term scheduler manages the memory of the system and its degree of multitasking by deciding which and how many applications may be loaded into memory. The medium-term scheduler is in charge of moving processes out of memory to prioritize others. The short-term scheduler decides which processes in the ready state to pass onto the CPU, and can also be preemptive.
+
+Question 10
+What is process starvation?
+    Starvation is the situation in which some processes are never able to be executed due to not being favored by the scheduler. Some processes can become “starved” if the scheduler never chooses to run them.

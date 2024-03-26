@@ -1,0 +1,29 @@
+2017 OWASP TOP 10
+Cross-Site Scripting (XSS)
+When a malicious hacker found a cross-site scripting vulnerability in a popular social media platform, they couldn’t pass up the opportunity: They crafted a self-sharing post that would rapidly spread and install malware on anyone’s device who viewed it; a rather dark twist on the concept of “going viral”.
+
+Cross-Site Scripting (XSS) is a web vulnerability that targets the browser-side of the website, rather than the server-side. XSS happens when a browser is tricked into running malicious javascript. It usually happens when a website allows user input without sanitizing and unarming dangerous input. If this happens, an attacker can pass input to the website that a victim’s browser will run as javascript.
+
+XSS can be a severe vulnerability, particularly when the malicious input is stored by the website and displayed to many users. XSS has a wide range of uses, from defacing websites to bypassing authentication to stealing passwords.
+
+Preventing XSS involves making sure that special characters like <, >, ", =, and more are properly escaped to prevent a browser from parsing them as code rather than regular text.
+
+Instructions
+In this workspace, if you type something in the input field, it will be shown in the output field. This echoing of user input is fairly common, and it is used for things like search pages.
+
+Unfortunately, this website is vulnerable to Cross-Site Scripting.
+
+The simplest method of XSS is to just use a <script> tag, like so:
+<script>alert("xss")</script>
+
+Simple methods like these don’t often work (as is the case here). Type this into the input box and press the Try it now! button; the output goes blank, showing that the <script> tags are being treated as HTML tags, but the script does not run. This is likely because of protections in place to prevent XSS.
+
+Lets try a different approach, to bypass those protections. Type:
+ <iframe src="javascript:alert('XSS')">`
+
+into the input box and click the Try it now! button. You should see an alert box pop up on your screen. This script only pops up an alert, but it could be easily substituted with a malicious script. Because this example does not use a <script> tag, it may be able to bypass protections that rely on looking for <script> tags.
+
+Finally, let’s look at a more complicated example:
+<a href="&#0000106avascript:alert('XSS')">XSS</a>
+
+Again, this example doesn’t use a <script> tag. Instead, it creates a link that, when you click on it, executes the embedded script to pop up an alert on the page.
