@@ -1,0 +1,25 @@
+Server-Side Rendering
+With server-side rendering, all of the content for a given view is generated on the server, then sent to the browser to be rendered. Pages are generated and rendered on-demand. Every time the user navigates to a different page on the site, the server builds the web page and sends it to the client. Because the content is ready to be rendered when it arrives in the browser, the time it takes for the page to become viewable is usually quick.
+
+Before the page is fully interactable, the browser must download and parse the JavaScript. This process can be slow, and largely depends on the amount of JavaScript code, the quality of the network connection, and the user’s device.
+
+Since static content loads quickly, server-side rendering is ideal for informational sites where there is little interactivity. Implementing server-side rendering for sites that have rich interactions can lead to a poor user experience since more requests to the server need to be made, and JavaScript has to load before the user can engage with the site.
+
+Consider the following pros and cons before choosing server-side rendering for your next app:
+
+Pros:
+
+Visual elements of the page load quickly, since the content is ready to render before it’s sent to the browser.
+Better Search Engine Optimization (SEO) performance, since search engines can index static content immediately.
+Cons:
+
+Time to interactive (TTI) can be slow if the page is JavaScript-heavy. Speed depends on many factors outside of the developer’s control, like network connection quality, and the user’s device.
+
+
+When is server-side rendering preferred and why?
+    Server-side rendering is preferred for mostly static sites because the content is generated on the server and is quickly viewable after it is sent to the browser.
+
+What are the pros and cons of server-side rendering?
+    The main advantages of server-side rendering are that visual elements of the page load quickly, and it offers better SEO performance compared with client-side rendering. The primary disadvantage is the time it takes for interactive elements of the page to load can be slow and depends largely on factors outside of the developer's control.
+
+    

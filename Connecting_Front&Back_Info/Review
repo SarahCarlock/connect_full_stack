@@ -1,0 +1,18 @@
+Review
+In this lesson, we learned about communication between the front-end and back-end of an application and the different ways of rendering a web app. Let’s recap some key takeaways from this lesson:
+
+Front-end web development concerns all aspects of a web app that a user can see and directly interact with.
+Back-end web development concerns how a website functions, and the storage and retrieval of data.
+The front-end and back-end of a web app communicate via an HTTP request/response cycle. The types of data that servers send to the browser include HTML documents, JavaScript, static assets, and formatted data.
+Websites can be rendered on the client-side or server-side. Hybrid rendering combines both of these approaches.
+With client-side rendering, JavaScript dynamically generates all content in the browser as the user navigates the site. Content is rendered quickly, after the initial page load.
+Client-side rendering is ideal for dynamic sites, with rich JavaScript interactions.
+With server-side rendering, the server sends the content to the browser. Static content is quickly viewable in the browser, but rich site interactions can take longer to load.
+Server-side rendering is ideal for mostly static sites, where there is not a lot of user interaction.
+Hybrid rendering models attempt to optimize speed, performance, and SEO by combining aspects of client and server-side rendering.
+
+What is the difference between the front-end and the back-end of a website?
+    The front-end of a website are the features that a user can see and directly interact with. The back-end of a website are the features that allow it to function, and store and retrieve data.
+
+What are the respective roles of the browser and server in client-side rendering?
+    The server sends a boilerplate HTML document to the browser, along with JavaScript code. The browser uses JavaScript sent from the server to dynamically generate content as the user navigates the site.

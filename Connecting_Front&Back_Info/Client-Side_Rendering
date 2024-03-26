@@ -1,0 +1,24 @@
+Client-Side Rendering
+Client-side rendering has become a popular method for delivering highly interactive web applications. Let’s take a closer look at what client-side rendering is and how it works.
+
+In client-side rendering, the server sends the browser a boilerplate HTML document that includes a reference to a JavaScript file. This JavaScript code is responsible for dynamically generating content in the browser, as the user moves through the site. With client-side rendering, content is generated and rendered as needed; only the requested content will be loaded, at the time it is requested.
+
+In terms of user experience, the initial page load can be slow, since the JavaScript first has to generate the content for a given view before it is visible and interactable. As the user navigates the app, however, JavaScript code will produce content directly in the browser. Since round-trip calls to the server are not necessary to render additional content, subsequent loads will be much faster. Because of its quick rendering time after the initial load, client-side rendering tends to be preferred for highly interactive web applications.
+
+Front-End frameworks like React, Vue, and Angular often rely on client-side rendering to deliver Single Page Applications.
+
+When deciding whether client-side rendering is right for your app, consider the following pros and cons:
+
+Pros:
+
+Fast speed after initial page load.
+Cons:
+
+Poor Search Engine Optimization (SEO) performance with dynamically generated content.
+Can lead to poor user experience on slower devices.
+
+When is client-side rendering preferred and why?
+    Client-side rendering is preferred for highly interactive web applications because of its quick rendering time after the initial page load.
+
+What are the pros and cons of client-side rendering?
+    The main advantage of client-side rendering is the fast speed, after the initial page load. The biggest disadvantages are poor SEO performance and the possibility of poor user experience on slower devices.

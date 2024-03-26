@@ -1,0 +1,15 @@
+Code Generation
+Learn about code generation and get an introduction to OpenAPI Specification.
+
+In this article, we will learn about code generation—a process used to save production time, increase productivity, and reduce bugs. We will also get an introduction to OpenAPI Specification, a tool for code generation.
+
+Code Generation
+Code generation is the process of generating code and assets from a template, or specification. Code generation tools provide boilerplate code that allows for standardization, rapid development, and increased productivity. Using boilerplate code reduces the number of errors in the application, which helps with maintenance and is better for scalability.
+
+An example of a code generation tool that you may be familiar with is create-react-app, which can be used to generate code structure, allowing developers to focus on developing the application itself.
+
+OpenAPI Specification
+The OpenAPI Specification (OAS) is a standard for describing RESTful APIs. Similar to how create-react-app provides a standard for React projects by generating templates, OAS provides the rules and syntax necessary to describe an API. Using OAS is helpful for a better developer experience, independence, and faster development. To learn how to use OpenAPI Specification, take a look at the Introduction to the OpenAPI Specification article for an introduction from SmartBear.
+
+Review
+In this article, we introduced the concept of code generation and OpenAPI Specification. For your next full-stack app, consider using code generation tools to kick-start the development process!

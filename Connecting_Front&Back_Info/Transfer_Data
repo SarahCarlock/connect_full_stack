@@ -1,0 +1,24 @@
+Transferring Data
+In web applications, the front-end and the back-end communicate via an HTTP request/response cycle. For a refresher on how client and server communicate over HTTP, take a look at the Setting up a Server with HTTP lesson. Here, we’ll focus on the information that is sent back and forth between client and server.
+
+An HTTP request from the client to the server can be broken down into:
+
+A start line that includes an HTTP method, the path for the requested resource, and the HTTP version number.
+Headers that provide the server with additional information about the sender and the request.
+A body, if needed. Generally, POST and PUT requests will include a body to send data.
+Once the server has received the request made by the front-end, it builds a response to send back to the client. An HTTP response can also be broken down into at least two parts:
+
+A status line that indicates whether or not the request was completed successfully.
+A series of headers to give more context about the response.
+Often a response from the server will contain a body, which includes data requested from the client. Generally, the server will send back the following types of data:
+
+HTML documents
+Static assets, like stylesheets, JavaScript files, and images
+Formatted data
+
+How do the front-end and the back-end of a website communicate with each other over HTTP?
+    The front-end and back-end of a web app communicate via an HTTP request/response cycle.
+
+What are some examples of data that the back-end sends as a response to the front-end?
+    The back-end typically sends HTML documents, formatted data, and assets like stylesheets, JavaScript files, and images in its response to browser requests.
+
